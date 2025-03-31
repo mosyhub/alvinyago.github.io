@@ -19,15 +19,37 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .header {
-            text-align: center;
-            font-size: 24px;
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #333;
+            padding: 15px;
+            color: white;
+        }
+        .navbar .title {
+            font-size: 20px;
             font-weight: bold;
-            margin-bottom: 20px;
+        }
+        .navbar .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .navbar button, .dropdown select {
+            background: #555;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .dropdown select {
+            padding: 9px;
         }
         .content {
             display: flex;
             align-items: flex-start;
+            margin-top: 20px;
         }
         .video {
             flex: 1;
@@ -50,6 +72,20 @@
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <div class="title">ITOS220-T: Operating Systems</div>
+        <div class="buttons">
+            <button>Home</button>
+            <div class="dropdown">
+                <select>
+                    <option>Laboratory Activities</option>
+                    <option>Activity 1</option>
+                    <option>Activity 2</option>
+                </select>
+            </div>
+            <button>Final Activity</button>
+        </div>
+    </div>
     <div class="container">
         <div class="header">Operating Systems</div>
         <div class="content">
@@ -66,7 +102,7 @@
         <p>A <strong>virtual machine (VM)</strong> is a software-based simulation of a physical computer that runs an operating system and applications independently from the host machine.</p>
         <h3>VirtualBox by Oracle</h3>
         <p><strong>VirtualBox</strong> is a free and open-source virtualization software developed by Oracle that allows users to create and manage virtual machines.</p>
-        <div class="footer">© 2025 by YAGO, SJ. All rights reserved.</div>
+        <div class="footer">© 2025 by Marbella, SJ. All rights reserved.</div>
     </div>
 </body>
 </html>
