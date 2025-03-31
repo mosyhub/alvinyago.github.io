@@ -13,9 +13,6 @@
             flex-direction: column;
             min-height: 100vh;
         }
-        .content {
-            flex: 1;
-        }
         .container {
             max-width: 1000px;
             margin: 20px auto;
@@ -23,6 +20,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
         }
         .navbar {
             background: #343a40;
@@ -34,12 +32,8 @@
         .dropdown-menu a {
             color: black !important;
         }
-        .video {
-            display: flex;
-            justify-content: center;
-        }
         .video iframe {
-            max-width: 100%;
+            width: 100%;
             height: 315px;
             border: none;
         }
@@ -75,27 +69,25 @@
         </div>
     </nav>
     
-    <div class="content">
-        <div class="container">
-            <h2 class="mt-3">Operating Systems</h2>
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-3 video">
-                    <!-- YOUTUBE LINK -->
-                    <iframe src="https://www.youtube.com/embed/GjNp0bBrjmU?si=N_u2PAoGGobj6522" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                <div class="col-lg-6">
-                    <h3>What is an operating system?</h3>
-                    <p><strong>An operating system (OS)</strong> is system software that manages computer hardware and software resources while providing services for computer programs.</p>
-                    <p>It ensures system stability and usability through a user-friendly interface and background operations.</p>
-                </div>
+    <div class="container">
+        <h2 class="mt-3">Operating Systems</h2>
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-3">
+                <!-- YOUTUBE LINK -->
+                <iframe src="https://www.youtube.com/embed/GjNp0bBrjmU?si=N_u2PAoGGobj6522" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            <h3 class="mt-3">Virtual Machine</h3>
-            <p>A Virtual Machine (VM) is a software-based emulation of a physical computer. It allows you to run an operating system (OS) and applications in an isolated environment on top of a host system. VMs are widely used for software development, testing, and server virtualization.</p>
+            <div class="col-lg-6">
+                <h3>What is an operating system?</h3>
+                <p><strong>An operating system (OS)</strong> is system software that manages computer hardware and software resources while providing services for computer programs.</p>
+                <p>It ensures system stability and usability through a user-friendly interface and background operations.</p>
+            </div>
         </div>
+        <h3 class="mt-3">Virtual Machine</h3>
+        <p>A Virtual Machine (VM) is a software-based emulation of a physical computer. It allows you to run an operating system (OS) and applications in an isolated environment on top of a host system. VMs are widely used for software development, testing, and server virtualization.</p>
     </div>
 
     <!-- FOOTER -->
-    <footer class="footer mt-auto">
+    <footer class="footer mt-auto d-flex justify-content-center align-items-center">
         <p class="mb-0">© 2025 by Marbella, SJ. All rights reserved.</p>
     </footer>
 </body>
