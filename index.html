@@ -9,6 +9,9 @@
     <style>
         body {
             background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         .container {
             max-width: 1000px;
@@ -17,6 +20,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
         }
         .navbar {
             background: #343a40;
@@ -35,9 +39,9 @@
         }
         .footer {
             text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-            color: gray;
+            padding: 10px;
+            background: #343a40;
+            color: white;
         }
     </style>
 </head>
@@ -83,7 +87,7 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="footer d-flex justify-content-center align-items-center p-3 bg-dark text-white">
+    <footer class="footer mt-auto d-flex justify-content-center align-items-center">
         <p class="mb-0">© 2025 by Marbella, SJ. All rights reserved.</p>
     </footer>
 </body>
