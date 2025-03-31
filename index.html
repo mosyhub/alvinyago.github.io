@@ -3,44 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Video with Description</title>
+    <title>Operating Systems</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
             background-color: #f4f4f4;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 1000px;
+            margin: 20px auto;
             background: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        iframe {
+        .header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .content {
+            display: flex;
+            align-items: flex-start;
+        }
+        .video {
+            flex: 1;
+        }
+        .video iframe {
             width: 100%;
-            height: 400px;
+            height: 300px;
             border: none;
         }
-        .description {
+        .text {
+            flex: 1;
+            padding-left: 20px;
+        }
+        .footer {
+            text-align: center;
             margin-top: 20px;
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: 14px;
+            color: gray;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Awesome YouTube Video</h2>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-        <div class="description">
-            <p>This video showcases an incredible topic that has fascinated millions of people worldwide. It delves into the depths of knowledge, exploring various aspects that make it both entertaining and educational. Whether you're a beginner or an expert, you'll find valuable insights that can enhance your understanding.</p>
-            <p>Throughout the video, the presenter breaks down complex concepts into easy-to-understand explanations. Real-world examples and practical applications are highlighted to ensure the audience can relate to the information being shared.</p>
-            <p>Not only is this video informative, but it also engages the audience through a captivating presentation style. The visuals, animations, and storytelling techniques used make learning fun and interactive.</p>
-            <p>If you're interested in similar content, be sure to explore other videos on the channel. Don't forget to like, share, and subscribe for more exciting content!</p>
+        <div class="header">Operating Systems</div>
+        <div class="content">
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/vp4cTmdsd9Q" allowfullscreen></iframe>
+            </div>
+            <div class="text">
+                <h3>What is an operating system?</h3>
+                <p><strong>An operating system (OS)</strong> is system software that manages computer hardware and software resources while providing services for computer programs.</p>
+                <p>It ensures system stability and usability through a user-friendly interface and background operations.</p>
+            </div>
         </div>
+        <h3>Virtual Machine</h3>
+        <p>A <strong>virtual machine (VM)</strong> is a software-based simulation of a physical computer that runs an operating system and applications independently from the host machine.</p>
+        <h3>VirtualBox by Oracle</h3>
+        <p><strong>VirtualBox</strong> is a free and open-source virtualization software developed by Oracle that allows users to create and manage virtual machines.</p>
+        <div class="footer">© 2025 by YAGO, SJ. All rights reserved.</div>
     </div>
 </body>
 </html>
