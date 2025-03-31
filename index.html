@@ -22,8 +22,11 @@
             background: #343a40;
             padding: 15px;
         }
-        .navbar .nav-link, .navbar .dropdown-menu a {
-            color: white;
+        .dropdown-menu {
+            background: white;
+        }
+        .dropdown-menu a {
+            color: black !important;
         }
         .video iframe {
             width: 100%;
@@ -49,11 +52,11 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Laboratory Activities</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="activity1.html">Activity 1</a></li>
-                            <li><a class="dropdown-item" href="activity2.html">Activity 2</a></li>
-                            <li><a class="dropdown-item" href="windows95.html">Windows 95</a></li>
+                        <a class="nav-link dropdown-toggle" href="#" id="labDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Laboratory Activities</a>
+                        <ul class="dropdown-menu" aria-labelledby="labDropdown">
+                            <li><a class="dropdown-item text-dark" href="activity1.html">Activity 1</a></li>
+                            <li><a class="dropdown-item text-dark" href="activity2.html">Activity 2</a></li>
+                            <li><a class="dropdown-item text-dark" href="windows95.html">Windows 95</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#">Final Activity</a></li>
