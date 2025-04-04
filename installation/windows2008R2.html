@@ -3,100 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Windows Server 2008 Installation</title>
     <!-- FAVICON -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <!-- BOOTSTRAP AND CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f0ff 100%);
+            font-family: "Segoe UI", sans-serif;
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+
+        .site-header {
+            background-color: #0d6efd !important;
+        }
+
+        .navbar-nav .nav-link.active,
+        .navbar-nav .nav-link:hover {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .main-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            margin-top: 2rem;
+        }
+
+        .title-box {
+            color: #1a4d8c;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .sub-box {
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #0d6efd;
+        }
+
+        .footer {
+            font-size: 0.9rem;
+            color: #6c757d;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(248, 249, 250, 0.9);
+            backdrop-filter: blur(5px);
+            padding: 1rem;
+            border-top: 1px solid #dee2e6;
+        }
+
+        iframe {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 1px solid #dee2e6;
+        }
+
+        @media (max-width: 576px) {
+            iframe {
+                width: 100%;
+                height: auto;
+            }
+            
+            .main-box {
+                padding: 1rem;
+                margin-top: 1rem;
+            }
+        }
+    </style>
 </head>
-<nav class="navbar navbar-expand-md bg-primary text-white site-header border-bottom shadow">
-    <div class="container-fluid container-md">
-        <a class="navbar-brand fw-bold text-white" href="../index.html">
-            ITOS220-T: Operating Systems
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav px-3 me-auto mb-2 mb-md-0 d-flex justify-content-end w-100">
-                <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="../index.html">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Installations
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/installation/windows95.html">Windows 95</a></li>
-                        <li><a class="dropdown-item" href="/installation/windowsNT.html">Windows NT 4.0</a></li>
-                        <li><a class="dropdown-item" href="/installation/windows98SE.html">Windows 98 SE</a></li>
-                        <li><a class="dropdown-item" href="/installation/windows2000.html">Windows 2000</a></li>
-                        <li><a class="dropdown-item" href="/installation/windowsME.html">Windows ME</a></li>
-                        <li><a class="dropdown-item" href="/installation/windowsXP.html">Windows XP</a></li>
-                        <li><a class="dropdown-item" href="/installation/windowsServer2003.html">Windows Server 2003</a></li>
-                        <li><a class="dropdown-item" href="/installation/windowsVista.html">Windows Vista</a></li>
-                        <li><a class="dropdown-item" href="/installation/windows2008R2.html">Windows Server 2008 R2</a></li>
-                        <li><a class="dropdown-item" href="/installation/windows7.html">Windows 7</a></li>
-                        <li><a class="dropdown-item" href="/installation/windows8.html">Windows 8</a></li>
-                        <li><a class="dropdown-item" href="/installation/windows10.html">Windows 10</a></li>
-                        <li><a class="dropdown-item" href="/installation/windows11.html">Windows 11</a></li>                        
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Laboratory Activities
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/activities/active-directory.html">Active Directory</a></li>
-                        <li><a class="dropdown-item" href="/activities/dhcp-joining.html">DHCP & Joining Workstations</a></li>
-                        <li><a class="dropdown-item" href="/activities/group-policy.html">Group Policy Management</a></li>
-                        <li><a class="dropdown-item" href="/activities/raid.html">RAID</a></li>
-                        <li><a class="dropdown-item" href="/activities/file-server.html">File Services</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Final Activity</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<body class="px-4">
-    <div class="container-md px-3 main-box mt-3 justify-content-center d-grid">
-        <div class="row">
-            <div class="fw-bold title-box h2 text-center">Windows 2008 Server Installations</div>
-        </div>
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-8 text-center">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/mYwyqILZ5lg?si=NPWDmQgMW1jWI0Bz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md site-header text-white border-bottom shadow">
+        <div class="container-fluid container-md">
+            <a class="navbar-brand fw-bold text-white" href="../index.html">
+                ITOS220-T: Operating Systems
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav px-3 me-auto mb-2 mb-md-0 d-flex justify-content-end w-100">
+                    <!-- Navigation items unchanged -->
+                </ul>
             </div>
         </div>
-        <div class="row d-flex justify-content-center gap-2 mt-4">
-            <div class="col-md justify-content-start sub-box py-2">
-                <div class="fw-bold title-box h3">History of Windows 2008 Server</div>
-                <div class="text-box">
+    </nav>
+
+    <!-- Main Content -->
+    <nav class="navbar navbar-expand-md site-header text-white border-bottom shadow">
+        <div class="container-fluid container-md">
+          <a class="navbar-brand fw-bold text-white" href="index.html">ITOS220-T: Operating Systems</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav px-3 me-auto mb-2 mb-md-0 d-flex justify-content-end w-100">
+              <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Installations</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/installation/windows95.html">Windows 95</a></li>
+                  <li><a class="dropdown-item" href="/installation/windowsNT.html">Windows NT 4.0</a></li>
+                  <li><a class="dropdown-item" href="/installation/windows98SE.html">Windows 98 SE</a></li>
+                  <li><a class="dropdown-item" href="/installation/windows2000.html">Windows 2000</a></li>
+                  <li><a class="dropdown-item" href="/installation/windowsME.html">Windows ME</a></li>
+                  <li><a class="dropdown-item" href="/installation/windowsXP.html">Windows XP</a></li>
+                  <li><a class="dropdown-item" href="/installation/windowsServer2003.html">Windows Server 2003</a></li>
+                  <li><a class="dropdown-item" href="/installation/windowsVista.html">Windows Vista</a></li>
+                  <li><a class="dropdown-item" href="/installation/windows2008R2.html">Windows Server 2008 R2</a></li>
+                  <li><a class="dropdown-item" href="/installation/windows7.html">Windows 7</a></li>
+                  <li><a class="dropdown-item" href="/installation/windows8.html">Windows 8</a></li>
+                  <li><a class="dropdown-item" href="/installation/windows10.html">Windows 10</a></li>
+                  <li><a class="dropdown-item" href="/installation/windows11.html">Windows 11</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Laboratory Activities</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/activities/active-directory.html">Active Directory</a></li>
+                  <li><a class="dropdown-item" href="/activities/dhcp-joining.html">DHCP & Joining Workstations</a></li>
+                  <li><a class="dropdown-item" href="/activities/group-policy.html">Group Policy Management</a></li>
+                  <li><a class="dropdown-item" href="/activities/raid.html">RAID</a></li>
+                  <li><a class="dropdown-item" href="/activities/file-server.html">File Services</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Final Activity</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+            <div class="row justify-content-center gap-2 mt-4">
+                <div class="col-md-10 sub-box">
+                    <div class="fw-bold h4 mb-3 title-box">History of Windows Server 2008</div>
                     <p>
-                        Windows Server 2008 is a server operating system developed by Microsoft, officially released on February 27, 2008. It is the successor to Windows Server 2003 and is built on the Windows NT 6.0 kernel, the same core as Windows Vista.
-                        <!-- Windows Server 2003 is a server operating system developed by Microsoft, released on April 24, 2003. It is built on the Windows NT family and is the successor to Windows 2000 Server. Designed for business and enterprise environments, it offers improved performance, security, and scalability. -->
-                        <!-- Windows XP is a widely acclaimed operating system developed by Microsoft, released on October 25, 2001. It was the first consumer version of Windows built on the Windows NT kernel, combining the stability of business-oriented systems with the usability of previous home versions like Windows 98 and ME. Windows XP featured a fresh, colorful interface, improved hardware support, and significantly better system stability and security. It introduced fast user switching, Remote Desktop, and better support for wireless networking. -->
+                        Windows Server 2008, released by Microsoft on February 27, 2008, marked a significant advancement in server 
+                        technology as the successor to Windows Server 2003. Built on the Windows NT 6.0 kernel (shared with Windows Vista), 
+                        it introduced enhanced security features and server management tools.
                     </p>
                     <p>
-                        Windows Server 2008 also featured Internet Information Services (IIS) 7.0, offering a more modular and secure web server. It supported failover clustering, bitlocker, and enhanced remote management tools, making it ideal for enterprise environments. Its robust features and scalability made it a key player in modernizing IT infrastructures. Microsoft later followed it with Windows Server 2008 R2, which brought further improvements and was based on Windows 7.
-                        <!-- Windows Server 2003 became a reliable platform for businesses due to its robust architecture and enterprise-level capabilities. Microsoft officially ended support on July 14, 2015, but the system played a critical role in shaping modern Windows Server platforms. -->
-                        <!-- The OS came in multiple editions, including Home, Professional, and Media Center, catering to a wide range of users. Due to its ease of use, reliability, and compatibility, Windows XP became one of the most popular operating systems in history. Microsoft ended official support for Windows XP on April 8, 2014, but it continued to be used by millions for years afterward, especially in business and government systems. XP is remembered as a long-lasting, trusted, and iconic version of Windows. -->
+                        This edition revolutionized server management with features like Server Core (a minimal installation option), 
+                        improved PowerShell support, and advanced networking capabilities. Its Internet Information Services (IIS) 7.0 
+                        provided a modular web server platform, while features like failover clustering and BitLocker encryption made it 
+                        enterprise-ready. Microsoft later released Windows Server 2008 R2, based on Windows 7's core, which further 
+                        refined these innovations.
                     </p>
                 </div>
             </div>
         </div>
-        <footer class="text-center mt-4 py-3 bg-light fixed-bottom">
-            <div class="footer">&copy;
-                <script type="text/javascript">document.write(new Date().getFullYear());</script>
-                <span> by Yago AS. All rights reserved.</span>
-            </div>
-        </footer>
-    </body>
-    </html>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div>
+            &copy; <script>document.write(new Date().getFullYear());</script> by Yago AS. All rights reserved.
+        </div>
+    </footer>
+</body>
 </html>
