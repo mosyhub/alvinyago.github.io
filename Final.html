@@ -68,6 +68,75 @@
             border: 1px solid #dee2e6;
         }
 
+        /* Sidebar Styles */
+        .sidebar {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            height: fit-content;
+            margin-top: 2rem;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar-title {
+            color: #1a4d8c;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #0d6efd;
+        }
+
+        .sidebar-menu {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .sidebar-menu li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-menu li:hover {
+            padding-left: 0.5rem;
+            background-color: #f8f9fa;
+        }
+
+        .sidebar-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-menu a {
+            color: #495057;
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0.5rem;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-menu a:hover {
+            color: #0d6efd;
+            border-left: 3px solid #0d6efd;
+        }
+
+        .sidebar-menu a.active {
+            color: #0d6efd;
+            font-weight: bold;
+            border-left: 3px solid #0d6efd;
+            background-color: rgba(13, 110, 253, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                margin-bottom: 2rem;
+                top: 0;
+            }
+        }
+
         @media (max-width: 576px) {
             iframe {
                 width: 100%;
@@ -130,124 +199,124 @@
         </div>
       </nav>
 
-      <!-- 1st -->
+      <!-- Main content with sidebar -->
       <div class="container-md mt-4 mb-5">
-        <div class="main-box">
-            <div class="row">
-                <div class="col text-center">
-                    <div class="fw-bold title-box h2">Windows ME Installation</div>
-                </div>
-            </div>
-            
-            <div class="row d-flex justify-content-center my-3">
-                <div class="col-md-8 text-center">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4VROv3CgcYY?si=V143U4HbhC0ZavCW" 
-                        title="YouTube video player" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-
-            <div class="row justify-content-center gap-2 mt-4">
-                <div class="col-md-10 sub-box">
-                    <div class="fw-bold h4 mb-3 title-box">History of Windows ME (Millennium Edition)</div>
-                    <p>
-                        Windows ME (Millennium Edition) was released by Microsoft on September 14, 2000, as the last operating system 
-                        in the Windows 9x series. Designed primarily for home users, it introduced multimedia and internet-focused 
-                        features but became notorious for stability issues, earning it nicknames like "Windows Mistake Edition."
-                    </p>
-                    <p>
-                        Despite its innovations in consumer-focused features like System Restore and Windows Movie Maker, Windows ME 
-                        struggled with frequent crashes and compatibility problems. Its poor reception led Microsoft to quickly 
-                        replace it with Windows XP in October 2001, which adopted the more stable Windows NT architecture.
-                    </p>
-                    <p>
-                        Microsoft ended support for Windows ME on July 11, 2006, marking the conclusion of the Windows 9x era and 
-                        paving the way for the NT-based consumer operating systems that followed.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--2nd  -->
-    <div class="container-md mt-4 mb-5">
-        <div class="main-box">
-            <div class="row">
-                <div class="col text-center">
-                    <div class="fw-bold title-box h2">Windows ME Installation</div>
-                </div>
-            </div>
-            
-            <div class="row d-flex justify-content-center my-3">
-                <div class="col-md-8 text-center">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4VROv3CgcYY?si=V143U4HbhC0ZavCW" 
-                        title="YouTube video player" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <h5 class="sidebar-title">Server Components</h5>
+                    <ul class="sidebar-menu">
+                        <li><a href="#">Domain Controller</a></li>
+                        <li><a href="#">Domain Users</a></li>
+                        <li><a href="#">DHCP Server</a></li>
+                        <li><a href="#">File Server</a></li>
+                        <li><a href="#">R.A.I.D</a></li>
+                        <li><a href="#">Remote Desktop</a></li>
+                        <li><a href="#">Web and Application Server</a></li>
+                        <li><a href="#">Group Policy</a></li>
+                        <li><a href="#">Windows Development Services</a></li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="row justify-content-center gap-2 mt-4">
-                <div class="col-md-10 sub-box">
-                    <div class="fw-bold h4 mb-3 title-box">History of Windows ME (Millennium Edition)</div>
-                    <p>
-                        Windows ME (Millennium Edition) was released by Microsoft on September 14, 2000, as the last operating system 
-                        in the Windows 9x series. Designed primarily for home users, it introduced multimedia and internet-focused 
-                        features but became notorious for stability issues, earning it nicknames like "Windows Mistake Edition."
-                    </p>
-                    <p>
-                        Despite its innovations in consumer-focused features like System Restore and Windows Movie Maker, Windows ME 
-                        struggled with frequent crashes and compatibility problems. Its poor reception led Microsoft to quickly 
-                        replace it with Windows XP in October 2001, which adopted the more stable Windows NT architecture.
-                    </p>
-                    <p>
-                        Microsoft ended support for Windows ME on July 11, 2006, marking the conclusion of the Windows 9x era and 
-                        paving the way for the NT-based consumer operating systems that followed.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+            <!-- Main content -->
+            <div class="col-md-9">
+                <!-- 1st section -->
+                <div class="main-box">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="fw-bold title-box h2">Windows ME Installation</div>
+                        </div>
+                    </div>
+                    
+                    <div class="row d-flex justify-content-center my-3">
+                        <div class="col-md-10 text-center">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/4VROv3CgcYY?si=V143U4HbhC0ZavCW" 
+                                title="YouTube video player" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
 
-    <!-- 3rd -->
-    <div class="container-md mt-4 mb-5">
-        <div class="main-box">
-            <div class="row">
-                <div class="col text-center">
-                    <div class="fw-bold title-box h2">Windows ME Installation</div>
+                    <div class="row justify-content-center gap-2 mt-4">
+                        <div class="col-md-12 sub-box">
+                            <div class="fw-bold h4 mb-3 title-box">History of Windows ME (Millennium Edition)</div>
+                            <p>
+                                Windows ME (Millennium Edition) was released by Microsoft on September 14, 2000, as the last operating system 
+                                in the Windows 9x series. Designed primarily for home users, it introduced multimedia and internet-focused 
+                                features but became notorious for stability issues, earning it nicknames like "Windows Mistake Edition."
+                            </p>
+                            <p>
+                                Despite its innovations in consumer-focused features like System Restore and Windows Movie Maker, Windows ME 
+                                struggled with frequent crashes and compatibility problems. Its poor reception led Microsoft to quickly 
+                                replace it with Windows XP in October 2001, which adopted the more stable Windows NT architecture.
+                            </p>
+                            <p>
+                                Microsoft ended support for Windows ME on July 11, 2006, marking the conclusion of the Windows 9x era and 
+                                paving the way for the NT-based consumer operating systems that followed.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="row d-flex justify-content-center my-3">
-                <div class="col-md-8 text-center">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4VROv3CgcYY?si=V143U4HbhC0ZavCW" 
-                        title="YouTube video player" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
 
-            <div class="row justify-content-center gap-2 mt-4">
-                <div class="col-md-10 sub-box">
-                    <div class="fw-bold h4 mb-3 title-box">History of Windows ME (Millennium Edition)</div>
-                    <p>
-                        Windows ME (Millennium Edition) was released by Microsoft on September 14, 2000, as the last operating system 
-                        in the Windows 9x series. Designed primarily for home users, it introduced multimedia and internet-focused 
-                        features but became notorious for stability issues, earning it nicknames like "Windows Mistake Edition."
-                    </p>
-                    <p>
-                        Despite its innovations in consumer-focused features like System Restore and Windows Movie Maker, Windows ME 
-                        struggled with frequent crashes and compatibility problems. Its poor reception led Microsoft to quickly 
-                        replace it with Windows XP in October 2001, which adopted the more stable Windows NT architecture.
-                    </p>
-                    <p>
-                        Microsoft ended support for Windows ME on July 11, 2006, marking the conclusion of the Windows 9x era and 
-                        paving the way for the NT-based consumer operating systems that followed.
-                    </p>
+                <!-- 2nd section -->
+                <div class="main-box mt-4">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="fw-bold title-box h2">Key Features</div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center gap-2 mt-4">
+                        <div class="col-md-12 sub-box">
+                            <div class="fw-bold h4 mb-3 title-box">Notable Windows ME Features</div>
+                            <p>
+                                Windows ME (Millennium Edition) was released by Microsoft on September 14, 2000, as the last operating system 
+                                in the Windows 9x series. Designed primarily for home users, it introduced multimedia and internet-focused 
+                                features but became notorious for stability issues, earning it nicknames like "Windows Mistake Edition."
+                            </p>
+                            <p>
+                                Despite its innovations in consumer-focused features like System Restore and Windows Movie Maker, Windows ME 
+                                struggled with frequent crashes and compatibility problems. Its poor reception led Microsoft to quickly 
+                                replace it with Windows XP in October 2001, which adopted the more stable Windows NT architecture.
+                            </p>
+                            <p>
+                                Microsoft ended support for Windows ME on July 11, 2006, marking the conclusion of the Windows 9x era and 
+                                paving the way for the NT-based consumer operating systems that followed.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3rd section -->
+                <div class="main-box mt-4">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="fw-bold title-box h2">Installation Process</div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center gap-2 mt-4">
+                        <div class="col-md-12 sub-box">
+                            <div class="fw-bold h4 mb-3 title-box">Windows ME Installation Steps</div>
+                            <p>
+                                Windows ME (Millennium Edition) was released by Microsoft on September 14, 2000, as the last operating system 
+                                in the Windows 9x series. Designed primarily for home users, it introduced multimedia and internet-focused 
+                                features but became notorious for stability issues, earning it nicknames like "Windows Mistake Edition."
+                            </p>
+                            <p>
+                                Despite its innovations in consumer-focused features like System Restore and Windows Movie Maker, Windows ME 
+                                struggled with frequent crashes and compatibility problems. Its poor reception led Microsoft to quickly 
+                                replace it with Windows XP in October 2001, which adopted the more stable Windows NT architecture.
+                            </p>
+                            <p>
+                                Microsoft ended support for Windows ME on July 11, 2006, marking the conclusion of the Windows 9x era and 
+                                paving the way for the NT-based consumer operating systems that followed.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
