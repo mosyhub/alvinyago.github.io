@@ -35,6 +35,8 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
             margin-top: 2rem;
+            /* Add scroll-margin-top for smooth scrolling with fixed header */
+            scroll-margin-top: 80px;
         }
 
         .title-box {
@@ -207,15 +209,15 @@
                 <div class="sidebar">
                     <h5 class="sidebar-title">Server Components</h5>
                     <ul class="sidebar-menu">
-                        <li><a href="#">Domain Controller</a></li>
-                        <li><a href="#">Domain Users</a></li>
-                        <li><a href="#">DHCP Server</a></li>
-                        <li><a href="#">File Server</a></li>
-                        <li><a href="#">R.A.I.D</a></li>
-                        <li><a href="#">Remote Desktop</a></li>
-                        <li><a href="#">Web and Application Server</a></li>
-                        <li><a href="#">Group Policy</a></li>
-                        <li><a href="#">Windows Development Services</a></li>
+                        <li><a href="#domain-controller" class="nav-link">Domain Controller</a></li>
+                        <li><a href="#domain-users" class="nav-link">Domain Users</a></li>
+                        <li><a href="#dhcp" class="nav-link">DHCP Server</a></li>
+                        <li><a href="#file-sharing" class="nav-link">File Server</a></li>
+                        <li><a href="#raid" class="nav-link">R.A.I.D</a></li>
+                        <li><a href="#remote-desktop" class="nav-link">Remote Desktop</a></li>
+                        <li><a href="#web-app-server" class="nav-link">Web and Application Server</a></li>
+                        <li><a href="#group-policy" class="nav-link">Group Policy</a></li>
+                        <li><a href="#windows-dev" class="nav-link">Windows Development Services</a></li>
                     </ul>
                 </div>
             </div>
@@ -223,7 +225,7 @@
             <!-- Main content -->
             <div class="col-md-9">
                 <!-- 1st section -->
-                <div class="main-box">
+                <div id="domain-controller" class="main-box">
                     <div class="row">
                         <div class="col text-center">
                             <div class="fw-bold title-box h2">Domain Controller</div>
@@ -248,7 +250,7 @@
                 </div>
 
                 <!-- 2nd section -->
-                <div class="main-box mt-4">
+                <div id="domain-users" class="main-box mt-4">
                     <div class="row">
                         <div class="col text-center">
                             <div class="fw-bold title-box h2">Domain Users</div>
@@ -272,7 +274,7 @@
                 </div>
 
                 <!-- 3rd section -->
-                <div class="main-box mt-4">
+                <div id="dhcp" class="main-box mt-4">
                     <div class="row">
                         <div class="col text-center">
                             <div class="fw-bold title-box h2">DHCP</div>
@@ -296,7 +298,7 @@
                 </div>
 
                  <!-- 4th section -->
-                 <div class="main-box mt-4">
+                 <div id="file-sharing" class="main-box mt-4">
                     <div class="row">
                         <div class="col text-center">
                             <div class="fw-bold title-box h2">File Sharing</div>
@@ -320,7 +322,7 @@
                 </div>
 
                 <!-- 5th section -->
-                <div class="main-box mt-4">
+                <div id="raid" class="main-box mt-4">
                     <div class="row">
                         <div class="col text-center">
                             <div class="fw-bold title-box h2">R.A.I.D</div>
@@ -339,7 +341,7 @@
                                 RAID (Redundant Array of Independent Disks) is a technology that combines multiple hard drives into a single system to either improve performance, increase data protection, or both. The most common RAID levels are RAID 0, RAID 1, RAID 5, and RAID 10. RAID 0, known as striping, spreads data across drives to boost speed but offers no redundancy—if one drive fails, all data is lost. RAID 1, or mirroring, duplicates data on two drives for full redundancy, ensuring data survives if one drive fails, though it halves storage capacity.                        
                             </p>
                             <p>
-                                RAID 5 stripes data across three or more drives while also storing parity information, allowing the system to recover data if a single drive fails. RAID 10 combines mirroring and striping, requiring at least four drives, to deliver both speed and redundancy by creating mirrored pairs that are then striped. RAID is widely used in servers, NAS devices, and workstations to enhance data reliability and performance, but it’s important to remember that RAID is not a substitute for regular backups, as it doesn’t protect against all types of data loss.
+                                RAID 5 stripes data across three or more drives while also storing parity information, allowing the system to recover data if a single drive fails. RAID 10 combines mirroring and striping, requiring at least four drives, to deliver both speed and redundancy by creating mirrored pairs that are then striped. RAID is widely used in servers, NAS devices, and workstations to enhance data reliability and performance, but it's important to remember that RAID is not a substitute for regular backups, as it doesn't protect against all types of data loss.
                             </p>
                         </div>
                     </div>
@@ -347,7 +349,7 @@
 
 
                 <!-- 6th section -->
-                <div class="main-box mt-4">
+                <div id="remote-desktop" class="main-box mt-4">
                     <div class="row">
                         <div class="col text-center">
                             <div class="fw-bold title-box h2">Remote Desktop</div>
@@ -356,7 +358,9 @@
 
                     <div class="row d-flex justify-content-center my-3">
                         <div class="col-md-10 text-center">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/LhTQzPw70zw?si=auoRAu6MEQXJhTzH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                    </div>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/LhTQzPw70zw?si=auoRAu6MEQXJhTzH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
 
                     <div class="row justify-content-center gap-2 mt-4">
                         <div class="col-md-12 sub-box">
@@ -371,7 +375,7 @@
                 </div>
 
                 <!-- 7th section -->
-                <div class="main-box mt-4">
+                <div id="web-app-server" class="main-box mt-4">
                     <div class="row">
                         <div class="col text-center">
                             <div class="fw-bold title-box h2">Web and Application Server</div>
@@ -380,7 +384,8 @@
 
                     <div class="row d-flex justify-content-center my-3">
                         <div class="col-md-10 text-center">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/HuZvOip54-M?si=3cR2yO3rzRJfgnPu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                        </div>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/HuZvOip54-M?si=3cR2yO3rzRJfgnPu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
                     </div>
 
                     <div class="row justify-content-center gap-2 mt-4">
@@ -391,12 +396,13 @@
                             </p>
                             <p>
                                 An application server, on the other hand, handles dynamic content and business logic. It executes programs (like PHP, Java, or .NET apps) and interacts with databases to generate personalized content. Examples include Tomcat, Node.js, JBoss, and Microsoft IIS (with ASP.NET).
-                            </div>
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 8th section -->
-                <div class="main-box mt-4">
+                <div id="group-policy" class="main-box mt-4">
                     <div class="row">
                         <div class="col text-center">
                             <div class="fw-bold title-box h2">Group Policy Management</div>
@@ -407,6 +413,7 @@
                         <div class="col-md-10 text-center">
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/YUysLFinCFw?si=6tIuWRnzwTJAPL_x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                   
                          </div>
+                    </div>
 
                     <div class="row justify-content-center gap-2 mt-4">
                         <div class="col-md-12 sub-box">
@@ -419,7 +426,7 @@
                 </div>
 
                 <!-- 9th section -->
-                <div class="main-box mt-4">
+                <div id="windows-dev" class="main-box mt-4">
                     <div class="row">
                         <div class="col text-center">
                             <div class="fw-bold title-box h2">Windows Development Services</div>
@@ -430,6 +437,7 @@
                         <div class="col-md-10 text-center">
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/YUysLFinCFw?si=6tIuWRnzwTJAPL_x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                   
                          </div>
+                    </div>
 
                     <div class="row justify-content-center gap-2 mt-4">
                         <div class="col-md-12 sub-box">
@@ -440,12 +448,73 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+      </div>
 
-     <!-- Footer -->
-     <footer class="footer text-center">
+    <!-- Footer -->
+    <footer class="footer text-center">
         <div>
             &copy; <script>document.write(new Date().getFullYear());</script> by Yago AS. All rights reserved.
         </div>
     </footer>
+
+    <!-- JavaScript for sidebar navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all links in the sidebar
+            const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+            
+            // Add click event listener to each link
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default anchor behavior
+                    
+                    // Get the target section id from the href attribute
+                    const targetId = this.getAttribute('href');
+                    
+                    // Scroll to the target section smoothly
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active class for sidebar links
+                    sidebarLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Function to set active link based on scroll position
+            function setActiveLink() {
+                const sections = document.querySelectorAll('.main-box');
+                let currentSectionId = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (window.scrollY >= (sectionTop - 100) && window.scrollY < (sectionTop + sectionHeight - 100)) {
+                        currentSectionId = '#' + section.getAttribute('id');
+                    }
+                });
+                
+                // If there's a current section, set its link as active
+                if (currentSectionId) {
+                    sidebarLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === currentSectionId) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            }
+            
+            // Listen for scroll events to update active link
+            window.addEventListener('scroll', setActiveLink);
+            
+            // Set initial active link
+            setActiveLink();
+        });
+    </script>
 </body>
 </html>
