@@ -3,120 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Style Page</title>
+    <title>Alvin Symo Yago - Portfolio</title>
     <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --text: #e94560;
+            --light: #f1f1f1;
+        }
+        
         body {
-            font-family: 'Roboto', Arial, sans-serif;
-            background-color: #f9f9f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            color: #030303;
-        }
-
-        .header {
-            background-color: white;
-            height: 56px;
+            background-color: var(--light);
+            color: #333;
             display: flex;
-            align-items: center;
-            padding: 0 16px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
+            min-height: 100vh;
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-icon {
-            color: #ff0000;
-            font-size: 24px;
-            margin-right: 4px;
-        }
-
-        .logo-text {
-            font-size: 18px;
-            font-weight: bold;
-            color: #030303;
-        }
-
-        .main-content {
-            margin-top: 80px;
+        
+        .profile-section {
+            width: 35%;
+            background-color: var(--primary);
+            color: white;
+            padding: 40px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 20px;
         }
-
-        .greeting {
-            font-size: 24px;
-            margin-bottom: 30px;
-            text-align: center;
+        
+        .works-section {
+            width: 65%;
+            padding: 40px;
+            background-color: var(--light);
         }
-
-        .button-container {
-            display: flex;
-            gap: 16px;
-            margin-top: 20px;
+        
+        .profile-header h1 {
+            color: var(--text);
+            margin: 0;
+            font-size: 2.5rem;
         }
-
-        .nav-button {
-            padding: 12px 24px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-            text-decoration: none;
+        
+        .profile-header h2 {
+            color: #ccc;
+            margin: 5px 0 20px;
+            font-size: 1.2rem;
+            font-weight: normal;
+        }
+        
+        .username {
             display: inline-block;
-        }
-
-        .rotoscope-btn {
-            background-color: #ff0000;
+            background-color: var(--accent);
             color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
         }
-
-        .os-btn {
-            background-color: #065fd4;
+        
+        .profile-details {
+            margin-top: 30px;
+        }
+        
+        .profile-details p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .profile-details i {
+            margin-right: 10px;
+            color: var(--text);
+        }
+        
+        .edit-btn {
+            background-color: var(--text);
             color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s;
         }
-
-        .nav-button:hover {
-            opacity: 0.9;
-            transform: scale(1.05);
+        
+        .edit-btn:hover {
+            background-color: #d13354;
+            transform: translateY(-2px);
         }
-
-        .nav-button:active {
-            transform: scale(0.98);
+        
+        .divider {
+            border: 0;
+            height: 1px;
+            background-color: rgba(255,255,255,0.2);
+            margin: 30px 0;
+        }
+        
+        .bio h2 {
+            color: var(--text);
+            margin-top: 0;
+        }
+        
+        .bio p {
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            color: var(--text);
+            font-weight: bold;
+        }
+        
+        .works-header {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        .works-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .work-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .work-card h3 {
+            color: var(--accent);
+            margin-top: 0;
+        }
+        
+        .work-card p {
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .profile-section, .works-section {
+                width: 100%;
+            }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <div class="logo-icon"><i class="fab fa-youtube"></i></div>
-            <div class="logo-text">MyTube</div>
+    <section class="profile-section">
+        <div class="profile-header">
+            <h1>Alvin Symo Yago</h1>
+            <h2>2nd Year IT Student</h2>
+            <span class="username">mosyhub</span>
         </div>
-    </div>
-
-    <div class="main-content">
-        <div class="greeting">Welcome to My YouTube Style Page</div>
         
-        <div class="button-container">
-            <a href="/rotoscope/index.html" class="nav-button rotoscope-btn">
-                <i class="fas fa-film"></i> Rotoscope
-            </a>
-            <a href="OperatingSystem/index.html" class="nav-button os-btn">
-                <i class="fas fa-laptop-code"></i> Operating System
-            </a>
+        <div class="profile-details">
+            <button class="edit-btn">Edit profile</button>
+            <p><i class="fas fa-users"></i> 7 followers • 7 following</p>
+            <p><i class="fas fa-university"></i> Technological University of the Philippines - "Baptiq"</p>
+            <p><i class="fas fa-envelope"></i> alvinsymo@gmail.com</p>
         </div>
-    </div>
+        
+        <hr class="divider">
+        
+        <div class="bio">
+            <h2>I'm Alvin Sym</h2>
+            <p>A passionate software developer from Philippines</p>
+            <p>- I'm currently working on personal and small academic projects</p>
+            <p>- I'm currently learning <span class="highlight">Laravel and PHP</span></p>
+            <p>- Let's build something awesome together — connect with me on Facebook, Instagram, Discord, or just drop me an email</p>
+        </div>
+    </section>
+    
+    <section class="works-section">
+        <h2 class="works-header">My Works</h2>
+        <div class="works-menu">
+            <div class="work-card">
+                <h3>Academic Project 1</h3>
+                <p>Description of your first academic project and technologies used.</p>
+            </div>
+            <div class="work-card">
+                <h3>Academic Project 2</h3>
+                <p>Description of your second academic project and technologies used.</p>
+            </div>
+            <div class="work-card">
+                <h3>Personal Project 1</h3>
+                <p>Description of your first personal project and what you learned.</p>
+            </div>
+            <div class="work-card">
+                <h3>Personal Project 2</h3>
+                <p>Description of your second personal project and what you learned.</p>
+            </div>
+            <div class="work-card">
+                <h3>Web Development</h3>
+                <p>Details about your web development experience and skills.</p>
+            </div>
+            <div class="work-card">
+                <h3>Mobile App</h3>
+                <p>Information about any mobile applications you've developed.</p>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
