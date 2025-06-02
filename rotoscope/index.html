@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Rotoscoping</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #030303;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: white;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            color: #ff0000;
+            font-size: 24px;
+            margin-right: 4px;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #030303;
+        }
+
+        .main-content {
+            margin-top: 80px;
+            padding: 20px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ff0000;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 30px;
+            background-color: #000;
+            border-radius: 8px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .content-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #ff0000;
+            margin-top: 0;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #065fd4;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 500;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #054daa;
+            transform: scale(1.05);
+        }
+
+        .back-button i {
+            margin-right: 8px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <div class="logo-icon"><i class="fab fa-youtube"></i></div>
+            <div class="logo-text">Rotoscope Guide</div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1 class="page-title">Introduction to Rotoscoping</h1>
+        
+        <div class="video-container">
+            <!-- Embed a rotoscoping example video -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/6txUa9zVkZg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <div class="content-section">
+            <h2>What is Rotoscoping?</h2>
+            <p>Rotoscoping is an animation technique where animators trace over live-action footage frame by frame to create realistic movement. The technique was first used by animator Max Fleischer in 1915, and has since been used in countless films, music videos, and commercials.</p>
+        </div>
+        
+        <div class="content-section">
+            <h2>How Rotoscoping Works</h2>
+            <p>The process typically involves:</p>
+            <ol>
+                <li>Capturing live-action footage</li>
+                <li>Projecting frames onto a drawing surface</li>
+                <li>Tracing the projected images</li>
+                <li>Adjusting the artwork for stylistic purposes</li>
+                <li>Compiling the traced frames into animation</li>
+            </ol>
+            <p>Modern rotoscoping often uses digital tools and software like Adobe After Effects, Photoshop, or specialized rotoscoping applications.</p>
+        </div>
+        
+        <div class="content-section">
+            <h2>Famous Examples</h2>
+            <p>Rotoscoping has been used in many famous works:</p>
+            <ul>
+                <li>Disney's "Snow White and the Seven Dwarfs" (1937)</li>
+                <li>Ralph Bakshi's "The Lord of the Rings" (1978)</li>
+                <li>A-ha's "Take On Me" music video (1985)</li>
+                <li>Richard Linklater's "Waking Life" (2001) and "A Scanner Darkly" (2006)</li>
+            </ul>
+        </div>
+        
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Main Page
+        </a>
+    </div>
+</body>
+</html>
