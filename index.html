@@ -32,10 +32,14 @@
             flex-direction: column;
         }
         
-        .works-section {
+        .buttons-section {
             width: 65%;
             padding: 40px;
             background-color: var(--light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         
         .profile-header h1 {
@@ -114,40 +118,32 @@
             font-weight: bold;
         }
         
-        .works-header {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent);
-        }
-        
-        .works-menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .work-card {
-            background-color: white;
-            border-radius: 8px;
+        .action-button {
+            width: 80%;
+            max-width: 400px;
             padding: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 15px 0;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
             transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
-        .work-card:hover {
+        .action-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            background-color: var(--text);
         }
         
-        .work-card h3 {
-            color: var(--accent);
+        .action-button:first-child {
             margin-top: 0;
-        }
-        
-        .work-card p {
-            color: #666;
         }
         
         @media (max-width: 768px) {
@@ -155,8 +151,12 @@
                 flex-direction: column;
             }
             
-            .profile-section, .works-section {
+            .profile-section, .buttons-section {
                 width: 100%;
+            }
+            
+            .action-button {
+                width: 90%;
             }
         }
     </style>
@@ -188,34 +188,13 @@
         </div>
     </section>
     
-    <section class="works-section">
-        <h2 class="works-header">My Works</h2>
-        <div class="works-menu">
-            <div class="work-card">
-                <h3>Academic Project 1</h3>
-                <p>Description of your first academic project and technologies used.</p>
-            </div>
-            <div class="work-card">
-                <h3>Academic Project 2</h3>
-                <p>Description of your second academic project and technologies used.</p>
-            </div>
-            <div class="work-card">
-                <h3>Personal Project 1</h3>
-                <p>Description of your first personal project and what you learned.</p>
-            </div>
-            <div class="work-card">
-                <h3>Personal Project 2</h3>
-                <p>Description of your second personal project and what you learned.</p>
-            </div>
-            <div class="work-card">
-                <h3>Web Development</h3>
-                <p>Details about your web development experience and skills.</p>
-            </div>
-            <div class="work-card">
-                <h3>Mobile App</h3>
-                <p>Information about any mobile applications you've developed.</p>
-            </div>
-        </div>
+    <section class="buttons-section">
+        <a href="rotoscope/index.html" class="action-button">
+            <i class="fas fa-film"></i> Rotoscope
+        </a>
+        <a href="OperatingSystem/index.html" class="action-button">
+            <i class="fas fa-laptop-code"></i> Operating System
+        </a>
     </section>
 </body>
 </html>
