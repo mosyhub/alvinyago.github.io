@@ -202,6 +202,98 @@
             -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2M12 4C16.4 4 20 7.6 20 12C20 16.4 16.4 20 12 20C7.6 20 4 16.4 4 12C4 7.6 7.6 4 12 4M12 5C8.1 5 5 8.1 5 12C5 15.9 8.1 19 12 19C15.9 19 19 15.9 19 12C19 8.1 15.9 5 12 5M8 12C8 9.8 9.8 8 12 8C14.2 8 16 9.8 16 12C16 14.2 14.2 16 12 16C9.8 16 8 14.2 8 12Z"/></svg>') no-repeat center;
             mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2M12 4C16.4 4 20 7.6 20 12C20 16.4 16.4 20 12 20C7.6 20 4 16.4 4 12C4 7.6 7.6 4 12 4M12 5C8.1 5 5 8.1 5 12C5 15.9 8.1 19 12 19C15.9 19 19 15.9 19 12C19 8.1 15.9 5 12 5M8 12C8 9.8 9.8 8 12 8C14.2 8 16 9.8 16 12C16 14.2 14.2 16 12 16C9.8 16 8 14.2 8 12Z"/></svg>') no-repeat center;
         }
+        
+        /* Button Styles */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .spider-button {
+            font-family: 'Bangers', cursive;
+            background-color: var(--spider-red);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            min-width: 200px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .spider-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .spider-button:active {
+            transform: translateY(0);
+        }
+        
+        .spider-button::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid var(--spider-blue);
+            border-radius: 50px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .spider-button:hover::before {
+            opacity: 0.5;
+        }
+        
+        /* School Works Section */
+        .school-works {
+            margin: 40px 0;
+        }
+        
+        .work-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--spider-red);
+        }
+        
+        .work-item h3 {
+            margin-top: 0;
+            color: var(--spider-blue);
+        }
+        
+        .work-meta {
+            display: flex;
+            gap: 20px;
+            margin: 10px 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .work-meta span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .work-meta span::before {
+            content: "🕷️";
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
@@ -219,7 +311,7 @@
             </div>
             
             <div class="profile-info">
-                <h2>ACADEMIC PROFILE</h2>
+                <h2>STUDENT PROFILE</h2>
                 <p>Balancing textbooks and web-shooters, this dedicated student swings through the challenges of education with great responsibility.</p>
                 
                 <div class="info-grid">
@@ -237,22 +329,49 @@
                         <p><strong>Phone:</strong> (555) 123-4567</p>
                         <p><strong>Address:</strong> Queens, NY</p>
                     </div>
-                    
-                    <div class="info-card">
-                        <h3>Academics</h3>
-                        <p><strong>Major:</strong> Science & Tech</p>
-                        <p><strong>Clubs:</strong> Science Club, Photography</p>
-                        <p><strong>Awards:</strong> Science Fair Winner</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Schedule</h3>
-                        <p><strong>1st:</strong> Advanced Chem</p>
-                        <p><strong>2nd:</strong> Calculus</p>
-                        <p><strong>3rd:</strong> Physics</p>
-                        <p><strong>4th:</strong> English</p>
-                    </div>
                 </div>
+                
+                <!-- Button Container -->
+                <div class="button-container">
+                    <a href="https://example.com/projects" class="spider-button">MY PROJECTS</a>
+                    <a href="https://example.com/assignments" class="spider-button">ASSIGNMENTS</a>
+                    <a href="https://example.com/portfolio" class="spider-button">PORTFOLIO</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- School Works Section -->
+        <div class="school-works">
+            <h2>SCHOOL WORKS</h2>
+            
+            <div class="work-item">
+                <h3>Science Fair Project: Web Fluid Analysis</h3>
+                <div class="work-meta">
+                    <span>Science Class</span>
+                    <span>Due: May 15, 2023</span>
+                    <span>Grade: A+</span>
+                </div>
+                <p>An in-depth analysis of synthetic web fluid properties and potential applications in construction and safety equipment.</p>
+            </div>
+            
+            <div class="work-item">
+                <h3>History Research Paper: The Evolution of Superheroes in American Culture</h3>
+                <div class="work-meta">
+                    <span>History Class</span>
+                    <span>Due: April 3, 2023</span>
+                    <span>Grade: A</span>
+                </div>
+                <p>Examining how superheroes reflect societal values and changes throughout 20th and 21st century America.</p>
+            </div>
+            
+            <div class="work-item">
+                <h3>Math Modeling Project: Trajectory Calculations for Web-Swinging</h3>
+                <div class="work-meta">
+                    <span>Calculus Class</span>
+                    <span>Due: March 22, 2023</span>
+                    <span>Grade: A</span>
+                </div>
+                <p>Using calculus to model the physics of pendulum motion as applied to swinging between skyscrapers.</p>
             </div>
         </div>
         
