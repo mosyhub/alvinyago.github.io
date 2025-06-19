@@ -3,598 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Profile</title>
+    <title>Multimedia Authoring Hub</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Bangers&display=swap');
-        
-        :root {
-            --spider-red: #e63946;
-            --spider-blue: #1d3557;
-            --spider-light: #f1faee;
-            --spider-accent: #a8dadc;
-            --gray-100: #f6f8fa;
-            --gray-200: #e1e4e8;
-            --gray-300: #d1d5da;
-            --gray-600: #586069;
-            --gray-900: #24292e;
-        }
-        
+        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
         
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--spider-light);
-            color: var(--spider-blue);
+            background-color: #f0f2f5;
+            color: #333;
             line-height: 1.6;
         }
         
+        /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--spider-red), var(--spider-blue));
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
             color: white;
-            padding: 40px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: "";
-            position: absolute;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,10 Q50,0 70,10 Q100,30 90,50 Q100,70 70,90 Q50,100 30,90 Q0,70 10,50 Q0,30 30,10 Z" fill="none" stroke="white" stroke-width="0.5" opacity="0.2"/></svg>');
-            background-size: 100px 100px;
-            opacity: 0.3;
+            z-index: 100;
         }
         
-        header h1 {
-            font-family: 'Bangers', cursive;
-            font-size: 3.5rem;
-            margin: 0;
-            letter-spacing: 3px;
-            text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
-            position: relative;
-            z-index: 1;
-        }
-        
-        header p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .container {
+        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
         }
         
-        .main-layout {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-        
-        /* Left Sidebar - Profile */
-        .profile-sidebar {
-            position: sticky;
-            top: 20px;
-        }
-        
-        .profile-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            border: 1px solid var(--gray-200);
-        }
-        
-        .profile-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 4px solid var(--spider-red);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            margin: 0 auto 20px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .profile-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .student-name {
-            font-family: 'Bangers', cursive;
+        .logo {
             font-size: 1.8rem;
-            color: var(--spider-blue);
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-        
-        .student-title {
-            font-size: 1rem;
-            color: var(--spider-red);
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        
-        .student-bio {
-            font-size: 0.9rem;
-            color: var(--gray-600);
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-        
-        .student-details {
-            text-align: left;
-            margin-top: 20px;
-        }
-        
-        .detail-item {
+            font-weight: bold;
             display: flex;
             align-items: center;
-            margin-bottom: 12px;
-            font-size: 0.9rem;
-            color: var(--gray-600);
         }
         
-        .detail-item .icon {
-            width: 20px;
+        .logo-icon {
             margin-right: 10px;
-            text-align: center;
-        }
-        
-        .stats-section {
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 1px solid var(--gray-200);
-        }
-        
-        .stat-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-        
-        .stat-label {
-            color: var(--gray-600);
-        }
-        
-        .stat-value {
-            font-weight: 600;
-            color: var(--spider-blue);
-        }
-        
-        /* Right Content - Works */
-        .works-content {
-            min-height: 100vh;
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--gray-200);
-        }
-        
-        .section-title {
-            font-family: 'Bangers', cursive;
             font-size: 2rem;
-            color: var(--spider-blue);
-            letter-spacing: 1px;
-            margin-right: 15px;
         }
         
-        .section-count {
-            background: var(--spider-red);
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
             color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .button-container {
-            display: grid;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-        
-        .spider-button {
-            font-family: 'Montserrat', sans-serif;
-            background: white;
-            color: var(--spider-blue);
-            border: 2px solid var(--gray-200);
-            padding: 20px 25px;
-            font-size: 1rem;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .spider-button:hover {
-            border-color: var(--spider-red);
-            background: var(--spider-red);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.3);
-        }
-        
-        .button-content {
-            display: flex;
-            align-items: center;
-        }
-        
-        .button-icon {
-            font-size: 1.2rem;
-            margin-right: 12px;
-        }
-        
-        .button-text {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-        
-        .button-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-        
-        .button-desc {
-            font-size: 0.85rem;
-            opacity: 0.7;
-            margin-top: 2px;
-        }
-        
-        .button-arrow {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .spider-button:hover .button-arrow {
-            transform: translateX(5px);
-        }
-        
-        .projects-grid {
-            display: grid;
-            gap: 20px;
-        }
-        
-        .project-card {
-            background: white;
-            border: 1px solid var(--gray-200);
-            border-radius: 12px;
-            padding: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .project-card:hover {
-            border-color: var(--spider-red);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
-        }
-        
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 15px;
-        }
-        
-        .project-title {
-            font-weight: 700;
-            color: var(--spider-blue);
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-        
-        .project-type {
-            background: var(--spider-accent);
-            color: var(--spider-blue);
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        
-        .project-desc {
-            color: var(--gray-600);
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-        
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-        
-        .tech-tag {
-            background: var(--gray-100);
-            color: var(--gray-600);
-            padding: 4px 8px;
-            border-radius: 8px;
-            font-size: 0.75rem;
             font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
         }
         
-        .project-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            color: var(--gray-600);
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
         
-        .project-date {
-            display: flex;
-            align-items: center;
+        /* Main Content Styles */
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
         }
         
-        .project-grade {
-            font-weight: 600;
-            color: var(--spider-red);
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin-bottom: 3rem;
         }
         
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #6e48aa;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #555;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #6e48aa;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #9d50bb;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Multimedia Sections */
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section h2 {
+            color: #6e48aa;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .section p {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Footer Styles */
         footer {
-            background: linear-gradient(135deg, var(--spider-blue), var(--spider-red));
+            background-color: #333;
             color: white;
             text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
+            padding: 2rem 0;
+            margin-top: 3rem;
         }
         
-        footer p {
-            font-size: 1rem;
-            margin: 0;
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
         
         /* Responsive Design */
-        @media (max-width: 1024px) {
-            .main-layout {
-                grid-template-columns: 280px 1fr;
-                gap: 30px;
-            }
-        }
-        
         @media (max-width: 768px) {
-            .container {
-                padding: 20px 15px;
+            .nav-container {
+                flex-direction: column;
+                padding: 1rem;
             }
             
-            .main-layout {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            nav ul {
+                margin-top: 1rem;
             }
             
-            .profile-sidebar {
-                position: static;
+            nav ul li {
+                margin-left: 1rem;
+                margin-right: 1rem;
             }
             
-            .profile-photo {
-                width: 150px;
-                height: 150px;
-            }
-            
-            header h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
+            .hero h1 {
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>STUDENT PORTFOLIO</h1>
-        <p>Academic Excellence & Creative Innovation</p>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🎨</span>
+                <span>Multimedia Hub</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Solar System</a></li>
+                    <li><a href="#">Rotoscope</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     
-    <div class="container">
-        <div class="main-layout">
-            <!-- Left Sidebar - Profile -->
-            <div class="profile-sidebar">
-                <div class="profile-card">
-                    <div class="profile-photo">
-                        <img src="https://via.placeholder.com/200x200/e63946/ffffff?text=Student" alt="Student Photo">
-                    </div>
-                    
-                    <h2 class="student-name">JOHN SMITH</h2>
-                    <p class="student-title">Computer Science Student</p>
-                    
-                    <p class="student-bio">
-                        Passionate about web development, artificial intelligence, and creating innovative solutions to real-world problems.
-                    </p>
-                    
-                    <div class="student-details">
-                        <div class="detail-item">
-                            <span class="icon">🎓</span>
-                            <span>Tech University</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="icon">📚</span>
-                            <span>BS Computer Science</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="icon">📅</span>
-                            <span>Class of 2026</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="icon">📍</span>
-                            <span>3rd Year Student</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="icon">✨</span>
-                            <span>Web Dev & AI Focus</span>
-                        </div>
-                    </div>
-                    
-                    <div class="stats-section">
-                        <div class="stat-item">
-                            <span class="stat-label">Current GPA</span>
-                            <span class="stat-value">3.85</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Projects</span>
-                            <span class="stat-value">12</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Assignments</span>
-                            <span class="stat-value">48</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Certifications</span>
-                            <span class="stat-value">5</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Right Content - Works -->
-            <div class="works-content">
-                <div class="section-header">
-                    <h2 class="section-title">EXPLORE MY WORK</h2>
-                    <span class="section-count">65</span>
-                </div>
-                
-                <div class="button-container">
-                    <a href="#projects" class="spider-button">
-                        <div class="button-content">
-                            <span class="button-icon">🚀</span>
-                            <div class="button-text">
-                                <span class="button-title">My Projects</span>
-                                <span class="button-desc">Innovative solutions and creative applications</span>
-                            </div>
-                        </div>
-                        <span class="button-arrow">→</span>
-                    </a>
-                    
-                    <a href="#assignments" class="spider-button">
-                        <div class="button-content">
-                            <span class="button-icon">📚</span>
-                            <div class="button-text">
-                                <span class="button-title">Assignments</span>
-                                <span class="button-desc">Academic work and course submissions</span>
-                            </div>
-                        </div>
-                        <span class="button-arrow">→</span>
-                    </a>
-                    
-                    <a href="#portfolio" class="spider-button">
-                        <div class="button-content">
-                            <span class="button-icon">🎨</span>
-                            <div class="button-text">
-                                <span class="button-title">Portfolio</span>
-                                <span class="button-desc">Showcase of skills and achievements</span>
-                            </div>
-                        </div>
-                        <span class="button-arrow">→</span>
-                    </a>
-                </div>
-                
-                <div class="section-header">
-                    <h2 class="section-title">RECENT PROJECTS</h2>
-                    <span class="section-count">3</span>
-                </div>
-                
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div>
-                                <h3 class="project-title">E-Commerce Web App</h3>
-                            </div>
-                            <span class="project-type">Web Dev</span>
-                        </div>
-                        <p class="project-desc">
-                            Full-stack e-commerce application built with React and Node.js, featuring user authentication, shopping cart, and payment integration.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Stripe API</span>
-                        </div>
-                        <div class="project-meta">
-                            <span class="project-date">📅 March 2025</span>
-                            <span class="project-grade">Grade: A+</span>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div>
-                                <h3 class="project-title">AI Chat Assistant</h3>
-                            </div>
-                            <span class="project-type">AI/ML</span>
-                        </div>
-                        <p class="project-desc">
-                            Intelligent chatbot using natural language processing to help students with course materials and academic questions.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">NLP</span>
-                        </div>
-                        <div class="project-meta">
-                            <span class="project-date">📅 February 2025</span>
-                            <span class="project-grade">Grade: A</span>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div>
-                                <h3 class="project-title">Mobile Task Manager</h3>
-                            </div>
-                            <span class="project-type">Mobile</span>
-                        </div>
-                        <p class="project-desc">
-                            Cross-platform mobile application for task management with real-time synchronization and collaborative features.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">TypeScript</span>
-                        </div>
-                        <div class="project-meta">
-                            <span class="project-date">📅 January 2025</span>
-                            <span class="project-grade">Grade: A-</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <main class="main-content">
+        <section class="hero">
+            <h1>Explore Multimedia Authoring</h1>
+            <p>Discover interactive experiences with our Solar System visualization and Rotoscope animation tools. Create, explore, and learn about digital media creation.</p>
+            <a href="#" class="btn">Get Started</a>
+        </section>
+        
+        <section class="section">
+            <h2>Solar System Visualization</h2>
+            <p>Experience our interactive 3D model of the solar system. Explore planets, moons, and celestial phenomena with accurate orbital mechanics and stunning visuals.</p>
+            <p>Perfect for educational purposes or just satisfying your cosmic curiosity!</p>
+            <a href="#" class="btn">View Solar System</a>
+        </section>
+        
+        <section class="section">
+            <h2>Rotoscope Animation</h2>
+            <p>Try our frame-by-frame rotoscope tool that transforms video into artistic animations. Upload your footage and create stunning hand-drawn style animations with ease.</p>
+            <p>Great for animators, artists, and anyone interested in motion graphics.</p>
+            <a href="#" class="btn">Try Rotoscope</a>
+        </section>
+        
+        <section class="section">
+            <h2>About Multimedia Authoring</h2>
+            <p>Multimedia authoring combines various forms of media - text, graphics, audio, video, and animation - to create interactive experiences. Our tools demonstrate how these elements can work together to create engaging content.</p>
+            <p>Whether you're a student, educator, or creative professional, these tools can help you explore the possibilities of digital media.</p>
+        </section>
+    </main>
     
     <footer>
-        <p>&copy; 2025 Student Portfolio. All rights reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2023 Multimedia Authoring Hub. All rights reserved.</p>
+            <p>Created for educational and demonstration purposes.</p>
+        </div>
     </footer>
 </body>
 </html>
