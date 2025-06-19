@@ -6,7 +6,7 @@
     <title>Yago's Works</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Bangers&display=swap');
-        
+
         :root {
             --spider-red: #e63946;
             --spider-blue: #1d3557;
@@ -18,20 +18,20 @@
             --gray-600: #586069;
             --gray-900: #24292e;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--spider-light);
             color: var(--spider-blue);
             line-height: 1.6;
         }
-        
+
         header {
             background: linear-gradient(135deg, var(--spider-red), var(--spider-blue));
             color: white;
@@ -40,7 +40,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         header::before {
             content: "";
             position: absolute;
@@ -52,7 +52,7 @@
             background-size: 100px 100px;
             opacity: 0.3;
         }
-        
+
         header h1 {
             font-family: 'Bangers', cursive;
             font-size: 3.5rem;
@@ -62,33 +62,32 @@
             position: relative;
             z-index: 1;
         }
-        
+
         header p {
             font-size: 1.2rem;
             margin-top: 10px;
             position: relative;
             z-index: 1;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
-        
+
         .main-layout {
             display: grid;
             grid-template-columns: 300px 1fr;
             gap: 40px;
             align-items: start;
         }
-        
-        /* Left Sidebar - Profile */
+
         .profile-sidebar {
             position: sticky;
             top: 20px;
         }
-        
+
         .profile-card {
             background: white;
             border-radius: 20px;
@@ -97,7 +96,7 @@
             text-align: center;
             border: 1px solid var(--gray-200);
         }
-        
+
         .profile-photo {
             width: 200px;
             height: 200px;
@@ -108,13 +107,13 @@
             overflow: hidden;
             position: relative;
         }
-        
+
         .profile-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .student-name {
             font-family: 'Bangers', cursive;
             font-size: 1.8rem;
@@ -122,26 +121,26 @@
             margin-bottom: 5px;
             letter-spacing: 1px;
         }
-        
+
         .student-title {
             font-size: 1rem;
             color: var(--spider-red);
             font-weight: 600;
             margin-bottom: 20px;
         }
-        
+
         .student-bio {
             font-size: 0.9rem;
             color: var(--gray-600);
             margin-bottom: 20px;
             line-height: 1.5;
         }
-        
+
         .student-details {
             text-align: left;
             margin-top: 20px;
         }
-        
+
         .detail-item {
             display: flex;
             align-items: center;
@@ -149,40 +148,39 @@
             font-size: 0.9rem;
             color: var(--gray-600);
         }
-        
+
         .detail-item .icon {
             width: 20px;
             margin-right: 10px;
             text-align: center;
         }
-        
+
         .stats-section {
             margin-top: 25px;
             padding-top: 20px;
             border-top: 1px solid var(--gray-200);
         }
-        
+
         .stat-item {
             display: flex;
             justify-content: space-between;
             margin-bottom: 8px;
             font-size: 0.9rem;
         }
-        
+
         .stat-label {
             color: var(--gray-600);
         }
-        
+
         .stat-value {
             font-weight: 600;
             color: var(--spider-blue);
         }
-        
-        /* Right Content - Works */
+
         .works-content {
             min-height: 100vh;
         }
-        
+
         .section-header {
             display: flex;
             align-items: center;
@@ -190,15 +188,16 @@
             padding-bottom: 10px;
             border-bottom: 2px solid var(--gray-200);
         }
-        
+
         .section-title {
             font-family: 'Bangers', cursive;
-            font-size: 2rem;
+            font-size: 3rem;
             color: var(--spider-blue);
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin-right: 15px;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
         }
-        
+
         .section-count {
             background: var(--spider-red);
             color: white;
@@ -207,13 +206,13 @@
             font-size: 0.8rem;
             font-weight: 600;
         }
-        
+
         .button-container {
             display: grid;
             gap: 15px;
             margin-bottom: 40px;
         }
-        
+
         .spider-button {
             font-family: 'Montserrat', sans-serif;
             background: white;
@@ -232,7 +231,7 @@
             align-items: center;
             justify-content: space-between;
         }
-        
+
         .spider-button:hover {
             border-color: var(--spider-red);
             background: var(--spider-red);
@@ -240,126 +239,43 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(230, 57, 70, 0.3);
         }
-        
+
         .button-content {
             display: flex;
             align-items: center;
         }
-        
+
         .button-icon {
             font-size: 1.2rem;
             margin-right: 12px;
         }
-        
+
         .button-text {
             display: flex;
             flex-direction: column;
             text-align: left;
         }
-        
+
         .button-title {
             font-weight: 700;
             font-size: 1.1rem;
         }
-        
+
         .button-desc {
             font-size: 0.85rem;
             opacity: 0.7;
             margin-top: 2px;
         }
-        
+
         .button-arrow {
             font-size: 1.2rem;
             transition: transform 0.3s ease;
         }
-        
+
         .spider-button:hover .button-arrow {
             transform: translateX(5px);
         }
-        
-        .projects-grid {
-            display: grid;
-            gap: 20px;
-        }
-        
-        .project-card {
-            background: white;
-            border: 1px solid var(--gray-200);
-            border-radius: 12px;
-            padding: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .project-card:hover {
-            border-color: var(--spider-red);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
-        }
-        
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 15px;
-        }
-        
-        .project-title {
-            font-weight: 700;
-            color: var(--spider-blue);
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-        
-        .project-type {
-            background: var(--spider-accent);
-            color: var(--spider-blue);
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        
-        .project-desc {
-            color: var(--gray-600);
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-        
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-        
-        .tech-tag {
-            background: var(--gray-100);
-            color: var(--gray-600);
-            padding: 4px 8px;
-            border-radius: 8px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-        
-        .project-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            color: var(--gray-600);
-        }
-        
-        .project-date {
-            display: flex;
-            align-items: center;
-        }
-        
-        .project-grade {
-            font-weight: 600;
-            color: var(--spider-red);
-        }
-        
+
         footer {
             background: linear-gradient(135deg, var(--spider-blue), var(--spider-red));
             color: white;
@@ -367,45 +283,44 @@
             padding: 30px 0;
             margin-top: 60px;
         }
-        
+
         footer p {
             font-size: 1rem;
             margin: 0;
         }
-        
-        /* Responsive Design */
+
         @media (max-width: 1024px) {
             .main-layout {
                 grid-template-columns: 280px 1fr;
                 gap: 30px;
             }
         }
-        
+
         @media (max-width: 768px) {
             .container {
                 padding: 20px 15px;
             }
-            
+
             .main-layout {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            
+
             .profile-sidebar {
                 position: static;
             }
-            
+
             .profile-photo {
                 width: 150px;
                 height: 150px;
             }
-            
+
             header h1 {
                 font-size: 2.5rem;
             }
-            
+
             .section-title {
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
         }
     </style>
@@ -415,56 +330,35 @@
         <h1>STUDENT PORTFOLIO</h1>
         <p>Academic Excellence & Creative Innovation</p>
     </header>
-    
+
     <div class="container">
         <div class="main-layout">
-            <!-- Left Sidebar - Profile -->
             <div class="profile-sidebar">
                 <div class="profile-card">
                     <div class="profile-photo">
                         <img src="https://via.placeholder.com/200x200/e63946/ffffff?text=Student" alt="Student Photo">
                     </div>
-                    
                     <h2 class="student-name">ALVIN SYMO YAGO</h2>
                     <p class="student-title">Information Technology Student</p>
-                    
                     <p class="student-bio">
                         Passionate about web development, artificial intelligence, and creating innovative solutions to real-world problems.
                     </p>
-                    
                     <div class="student-details">
-                        <div class="detail-item">
-                            <span class="icon">🎓</span>
-                            <span>Technological University of the Philippines</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="icon">📚</span>
-                            <span>BS Information Technology</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="icon">📅</span>
-                            <span>Class of 2024</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="icon">📍</span>
-                            <span>2nd Year Student</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="icon">✨</span>
-                            <span>Web Dev & AI Focus</span>
-                        </div>
+                        <div class="detail-item"><span class="icon">🎓</span><span>Technological University of the Philippines</span></div>
+                        <div class="detail-item"><span class="icon">📚</span><span>BS Information Technology</span></div>
+                        <div class="detail-item"><span class="icon">📅</span><span>Class of 2024</span></div>
+                        <div class="detail-item"><span class="icon">📍</span><span>2nd Year Student</span></div>
+                        <div class="detail-item"><span class="icon">✨</span><span>Web Dev & AI Focus</span></div>
                     </div>
-                
                 </div>
             </div>
-            
-            <!-- Right Content - Works -->
+
             <div class="works-content">
                 <div class="section-header">
                     <h2 class="section-title">EXPLORE MY WORK</h2>
                     <span class="section-count">65</span>
                 </div>
-                
+
                 <div class="button-container">
                     <a href="#projects" class="spider-button">
                         <div class="button-content">
@@ -476,7 +370,7 @@
                         </div>
                         <span class="button-arrow">→</span>
                     </a>
-                    
+
                     <a href="#assignments" class="spider-button">
                         <div class="button-content">
                             <span class="button-icon">📚</span>
@@ -487,7 +381,7 @@
                         </div>
                         <span class="button-arrow">→</span>
                     </a>
-                    
+
                     <a href="#portfolio" class="spider-button">
                         <div class="button-content">
                             <span class="button-icon">🎨</span>
@@ -499,8 +393,9 @@
                         <span class="button-arrow">→</span>
                     </a>
                 </div>
-                
-            
+            </div> <!-- Close works-content -->
+        </div> <!-- Close main-layout -->
+    </div> <!-- Close container -->
 
     <footer>
         <p>&copy; 2025 Student Portfolio. All rights reserved.</p>
