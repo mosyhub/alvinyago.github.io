@@ -3,166 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introduction to Rotoscoping</title>
+    <title>Spider-Student Profile</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Bangers&display=swap');
+        
+        :root {
+            --spider-red: #e63946;
+            --spider-blue: #1d3557;
+            --spider-light: #f1faee;
+            --spider-accent: #a8dadc;
+        }
+        
         body {
-            font-family: 'Roboto', Arial, sans-serif;
-            background-color: #f9f9f9;
             margin: 0;
             padding: 0;
-            color: #030303;
-            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--spider-light);
+            color: var(--spider-blue);
         }
-
-        .header {
-            background-color: white;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            padding: 0 16px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-icon {
-            color: #ff0000;
-            font-size: 24px;
-            margin-right: 4px;
-        }
-
-        .logo-text {
-            font-size: 18px;
-            font-weight: bold;
-            color: #030303;
-        }
-
-        .main-content {
-            margin-top: 80px;
-            padding: 20px;
+        
+        .container {
             max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
+            padding: 20px;
         }
-
-        .page-title {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #ff0000;
-        }
-
-        .video-container {
+        
+        header {
+            background: linear-gradient(135deg, var(--spider-red), var(--spider-blue));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
             overflow: hidden;
-            margin-bottom: 30px;
-            background-color: #000;
-            border-radius: 8px;
         }
-
-        .video-container iframe {
+        
+        header::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,10 Q50,0 70,10 Q100,30 90,50 Q100,70 70,90 Q50,100 30,90 Q0,70 10,50 Q0,30 30,10 Z" fill="none" stroke="white" stroke-width="0.5" opacity="0.2"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.3;
         }
-
-        .content-section {
-            background-color: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
+        
+        h1 {
+            font-family: 'Bangers', cursive;
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+            position: relative;
         }
-
+        
         h2 {
-            color: #ff0000;
-            margin-top: 0;
+            font-family: 'Bangers', cursive;
+            color: var(--spider-red);
+            letter-spacing: 2px;
+            border-bottom: 3px dashed var(--spider-red);
+            padding-bottom: 10px;
         }
-
-        .back-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #065fd4;
-            color: white;
-            text-decoration: none;
+        
+        .profile {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .profile-image {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            border-radius: 15px;
+            border: 5px solid var(--spider-red);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .profile-image::after {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid var(--spider-blue);
             border-radius: 20px;
-            font-weight: 500;
+            z-index: -1;
+        }
+        
+        .profile-info {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
             margin-top: 20px;
-            transition: all 0.3s ease;
         }
-
-        .back-button:hover {
-            background-color: #054daa;
-            transform: scale(1.05);
+        
+        .info-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--spider-red);
         }
-
-        .back-button i {
+        
+        .info-card h3 {
+            margin-top: 0;
+            color: var(--spider-blue);
+        }
+        
+        .powers {
+            background-color: var(--spider-blue);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .powers h2 {
+            color: white;
+            border-bottom-color: var(--spider-accent);
+        }
+        
+        .power-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .power-item {
+            background-color: rgba(255,255,255,0.1);
+            padding: 10px 15px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .power-item::before {
+            content: "🕷️";
             margin-right: 8px;
         }
+        
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 30px auto;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: var(--spider-accent);
+            position: relative;
+        }
+        
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--spider-red);
+            position: absolute;
+        }
+        
+        .quote::before {
+            top: 5px;
+            left: 10px;
+        }
+        
+        .quote::after {
+            bottom: 5px;
+            right: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: var(--spider-blue);
+            color: white;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .spider-logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            background-color: var(--spider-red);
+            -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2M12 4C16.4 4 20 7.6 20 12C20 16.4 16.4 20 12 20C7.6 20 4 16.4 4 12C4 7.6 7.6 4 12 4M12 5C8.1 5 5 8.1 5 12C5 15.9 8.1 19 12 19C15.9 19 19 15.9 19 12C19 8.1 15.9 5 12 5M8 12C8 9.8 9.8 8 12 8C14.2 8 16 9.8 16 12C16 14.2 14.2 16 12 16C9.8 16 8 14.2 8 12Z"/></svg>') no-repeat center;
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2M12 4C16.4 4 20 7.6 20 12C20 16.4 16.4 20 12 20C7.6 20 4 16.4 4 12C4 7.6 7.6 4 12 4M12 5C8.1 5 5 8.1 5 12C5 15.9 8.1 19 12 19C15.9 19 19 15.9 19 12C19 8.1 15.9 5 12 5M8 12C8 9.8 9.8 8 12 8C14.2 8 16 9.8 16 12C16 14.2 14.2 16 12 16C9.8 16 8 14.2 8 12Z"/></svg>') no-repeat center;
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <div class="logo-icon"><i class="fab fa-youtube"></i></div>
-            <div class="logo-text">Rotoscope Guide</div>
+    <header>
+        <div class="container">
+            <h1>SPIDER-STUDENT</h1>
+            <p>Friendly Neighborhood Scholar</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="profile">
+            <div class="profile-image">
+                <img src="https://via.placeholder.com/400x500/e63946/ffffff?text=Student+Photo" alt="Student Photo">
+            </div>
+            
+            <div class="profile-info">
+                <h2>ACADEMIC PROFILE</h2>
+                <p>Balancing textbooks and web-shooters, this dedicated student swings through the challenges of education with great responsibility.</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Personal Info</h3>
+                        <p><strong>Name:</strong> Peter Parker</p>
+                        <p><strong>School:</strong> Midtown High</p>
+                        <p><strong>Grade:</strong> 11th</p>
+                        <p><strong>GPA:</strong> 3.9</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Contact</h3>
+                        <p><strong>Email:</strong> p.parker@midtown.edu</p>
+                        <p><strong>Phone:</strong> (555) 123-4567</p>
+                        <p><strong>Address:</strong> Queens, NY</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Academics</h3>
+                        <p><strong>Major:</strong> Science & Tech</p>
+                        <p><strong>Clubs:</strong> Science Club, Photography</p>
+                        <p><strong>Awards:</strong> Science Fair Winner</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Schedule</h3>
+                        <p><strong>1st:</strong> Advanced Chem</p>
+                        <p><strong>2nd:</strong> Calculus</p>
+                        <p><strong>3rd:</strong> Physics</p>
+                        <p><strong>4th:</strong> English</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="powers">
+            <h2>ACADEMIC POWERS</h2>
+            <div class="power-list">
+                <div class="power-item">Quick Learner</div>
+                <div class="power-item">Scientific Mind</div>
+                <div class="power-item">Photographic Memory</div>
+                <div class="power-item">Problem Solver</div>
+                <div class="power-item">Creative Thinker</div>
+                <div class="power-item">Team Player</div>
+                <div class="power-item">Time Management</div>
+                <div class="power-item">Research Skills</div>
+            </div>
+        </div>
+        
+        <div class="quote">
+            "With great academic power comes great responsibility. The more I learn, the more I realize how much I can contribute to making the world a better place."
         </div>
     </div>
-
-    <div class="main-content">
-        <h1 class="page-title">Introduction to Rotoscoping</h1>
-        
-        <div class="video-container">
-            <!-- Embed a rotoscoping example video -->
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/6txUa9zVkZg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        
-        <div class="content-section">
-            <h2>What is Rotoscoping?</h2>
-            <p>Rotoscoping is an animation technique where animators trace over live-action footage frame by frame to create realistic movement. The technique was first used by animator Max Fleischer in 1915, and has since been used in countless films, music videos, and commercials.</p>
-        </div>
-        
-        <div class="content-section">
-            <h2>How Rotoscoping Works</h2>
-            <p>The process typically involves:</p>
-            <ol>
-                <li>Capturing live-action footage</li>
-                <li>Projecting frames onto a drawing surface</li>
-                <li>Tracing the projected images</li>
-                <li>Adjusting the artwork for stylistic purposes</li>
-                <li>Compiling the traced frames into animation</li>
-            </ol>
-            <p>Modern rotoscoping often uses digital tools and software like Adobe After Effects, Photoshop, or specialized rotoscoping applications.</p>
-        </div>
-        
-        <div class="content-section">
-            <h2>Famous Examples</h2>
-            <p>Rotoscoping has been used in many famous works:</p>
-            <ul>
-                <li>Disney's "Snow White and the Seven Dwarfs" (1937)</li>
-                <li>Ralph Bakshi's "The Lord of the Rings" (1978)</li>
-                <li>A-ha's "Take On Me" music video (1985)</li>
-                <li>Richard Linklater's "Waking Life" (2001) and "A Scanner Darkly" (2006)</li>
-            </ul>
-        </div>
-        
-        <a href="index.html" class="back-button">
-            <i class="fas fa-arrow-left"></i> Back to Main Page
-        </a>
-    </div>
+    
+    <footer>
+        <div class="spider-logo"></div>
+        <p>&copy; 2023 Spider-Student Profile. All rights reserved.</p>
+        <p>Remember: Education is our greatest superpower!</p>
+    </footer>
 </body>
 </html>
