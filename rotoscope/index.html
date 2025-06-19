@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spider-Student Profile</title>
+    <title>Student Profile</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Bangers&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Bangers&display=swap');
         
         :root {
             --spider-red: #e63946;
@@ -14,12 +14,17 @@
             --spider-accent: #a8dadc;
         }
         
-        body {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--spider-light);
             color: var(--spider-blue);
+            line-height: 1.6;
         }
         
         .container {
@@ -31,9 +36,8 @@
         header {
             background: linear-gradient(135deg, var(--spider-red), var(--spider-blue));
             color: white;
-            padding: 30px 0;
+            padding: 40px 0;
             text-align: center;
-            border-radius: 0 0 20px 20px;
             position: relative;
             overflow: hidden;
         }
@@ -50,281 +54,325 @@
             opacity: 0.3;
         }
         
-        h1 {
+        header h1 {
             font-family: 'Bangers', cursive;
             font-size: 3.5rem;
             margin: 0;
             letter-spacing: 3px;
             text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
             position: relative;
+            z-index: 1;
         }
         
-        h2 {
-            font-family: 'Bangers', cursive;
-            color: var(--spider-red);
-            letter-spacing: 2px;
-            border-bottom: 3px dashed var(--spider-red);
-            padding-bottom: 10px;
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
         }
         
-        .profile {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
+        .profile-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
             margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
         }
         
-        .profile-image {
-            flex: 1;
-            min-width: 250px;
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 6px solid var(--spider-red);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            margin: 0 auto 30px;
+            overflow: hidden;
             position: relative;
         }
         
-        .profile-image img {
-            width: 100%;
-            border-radius: 15px;
-            border: 5px solid var(--spider-red);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
-        .profile-image::after {
+        .profile-photo::after {
             content: "";
             position: absolute;
             top: -10px;
             left: -10px;
             right: -10px;
             bottom: -10px;
-            border: 2px solid var(--spider-blue);
-            border-radius: 20px;
+            border: 3px solid var(--spider-blue);
+            border-radius: 50%;
             z-index: -1;
         }
         
-        .profile-info {
-            flex: 2;
-            min-width: 300px;
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
-        .info-grid {
+        .student-name {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5rem;
+            color: var(--spider-blue);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .student-title {
+            font-size: 1.3rem;
+            color: var(--spider-red);
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        
+        .student-info {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin: 30px 0;
+            text-align: left;
         }
         
         .info-card {
-            background-color: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: var(--spider-light);
+            padding: 20px;
+            border-radius: 15px;
             border-left: 5px solid var(--spider-red);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
         .info-card h3 {
-            margin-top: 0;
             color: var(--spider-blue);
-        }
-        
-        .powers {
-            background-color: var(--spider-blue);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 40px 0;
-        }
-        
-        .powers h2 {
-            color: white;
-            border-bottom-color: var(--spider-accent);
-        }
-        
-        .power-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .power-item {
-            background-color: rgba(255,255,255,0.1);
-            padding: 10px 15px;
-            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
         
-        .power-item::before {
-            content: "🕷️";
-            margin-right: 8px;
-        }
-        
-        .quote {
-            font-style: italic;
+        .info-card h3::before {
+            content: "🎓";
+            margin-right: 10px;
             font-size: 1.2rem;
-            text-align: center;
-            margin: 30px auto;
-            max-width: 600px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: var(--spider-accent);
-            position: relative;
         }
         
-        .quote::before, .quote::after {
-            content: '"';
-            font-size: 2rem;
+        .info-card p {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .button-section {
+            margin: 50px 0;
+        }
+        
+        .button-section h2 {
+            font-family: 'Bangers', cursive;
             color: var(--spider-red);
-            position: absolute;
-        }
-        
-        .quote::before {
-            top: 5px;
-            left: 10px;
-        }
-        
-        .quote::after {
-            bottom: 5px;
-            right: 10px;
-        }
-        
-        footer {
+            letter-spacing: 2px;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            background-color: var(--spider-blue);
-            color: white;
-            border-radius: 20px 20px 0 0;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
         }
         
-        .spider-logo {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 15px;
-            background-color: var(--spider-red);
-            -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2M12 4C16.4 4 20 7.6 20 12C20 16.4 16.4 20 12 20C7.6 20 4 16.4 4 12C4 7.6 7.6 4 12 4M12 5C8.1 5 5 8.1 5 12C5 15.9 8.1 19 12 19C15.9 19 19 15.9 19 12C19 8.1 15.9 5 12 5M8 12C8 9.8 9.8 8 12 8C14.2 8 16 9.8 16 12C16 14.2 14.2 16 12 16C9.8 16 8 14.2 8 12Z"/></svg>') no-repeat center;
-            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2M12 4C16.4 4 20 7.6 20 12C20 16.4 16.4 20 12 20C7.6 20 4 16.4 4 12C4 7.6 7.6 4 12 4M12 5C8.1 5 5 8.1 5 12C5 15.9 8.1 19 12 19C15.9 19 19 15.9 19 12C19 8.1 15.9 5 12 5M8 12C8 9.8 9.8 8 12 8C14.2 8 16 9.8 16 12C16 14.2 14.2 16 12 16C9.8 16 8 14.2 8 12Z"/></svg>') no-repeat center;
-        }
-        
-        /* Button Styles */
         .button-container {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             gap: 20px;
-            margin: 30px 0;
-            flex-wrap: wrap;
+            max-width: 400px;
+            margin: 0 auto;
         }
         
         .spider-button {
             font-family: 'Bangers', cursive;
-            background-color: var(--spider-red);
+            background: linear-gradient(135deg, var(--spider-red), #c5303e);
             color: white;
             border: none;
-            padding: 12px 25px;
-            font-size: 1.2rem;
+            padding: 20px 40px;
+            font-size: 1.5rem;
             border-radius: 50px;
             cursor: pointer;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            min-width: 200px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+            width: 100%;
             text-align: center;
             text-decoration: none;
-            display: inline-block;
+            display: block;
+            border: 3px solid transparent;
         }
         
         .spider-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 30px rgba(230, 57, 70, 0.4);
+            border-color: var(--spider-blue);
+            background: linear-gradient(135deg, #c5303e, var(--spider-red));
         }
         
         .spider-button:active {
-            transform: translateY(0);
+            transform: translateY(-2px);
         }
         
         .spider-button::before {
             content: "";
             position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            border: 2px solid var(--spider-blue);
-            border-radius: 50px;
-            opacity: 0;
-            transition: opacity 0.3s;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
         }
         
         .spider-button:hover::before {
-            opacity: 0.5;
+            width: 300px;
+            height: 300px;
         }
         
-        /* School Works Section */
-        .school-works {
-            margin: 40px 0;
+        .spider-button span {
+            position: relative;
+            z-index: 1;
         }
         
-        .work-item {
+        footer {
+            background: linear-gradient(135deg, var(--spider-blue), var(--spider-red));
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></svg>');
+            background-size: 50px 50px;
+        }
+        
+        footer p {
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        .footer-logo {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 15px;
             background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-left: 5px solid var(--spider-red);
-        }
-        
-        .work-item h3 {
-            margin-top: 0;
-            color: var(--spider-blue);
-        }
-        
-        .work-meta {
-            display: flex;
-            gap: 20px;
-            margin: 10px 0;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .work-meta span {
+            border-radius: 50%;
             display: flex;
             align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
         
-        .work-meta span::before {
-            content: "🕷️";
-            margin-right: 5px;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .student-name {
+                font-size: 2rem;
+            }
+            
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .student-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .spider-button {
+                font-size: 1.3rem;
+                padding: 18px 35px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>SPIDER-STUDENT</h1>
-            <p>Friendly Neighborhood Scholar</p>
+            <h1>STUDENT PORTFOLIO</h1>
+            <p>Academic Excellence & Creative Innovation</p>
         </div>
     </header>
     
     <div class="container">
-        <div class="profile">
-            <div class="profile-image">
-                <img src="https://via.placeholder.com/400x500/e63946/ffffff?text=Student+Photo" alt="Student Photo">
+        <div class="profile-section">
+            <div class="profile-photo">
+                <img src="https://via.placeholder.com/200x200/e63946/ffffff?text=Student" alt="Student Photo">
             </div>
             
-            <div class="profile-info">
-                <h2>School Works</h2>
-
-                <!-- Button Container -->
-                <div class="button-container">
-                    <a href="https://example.com/projects" class="spider-button">MY PROJECTS</a>
-                    <a href="https://example.com/assignments" class="spider-button">ASSIGNMENTS</a>
-                    <a href="https://example.com/portfolio" class="spider-button">PORTFOLIO</a>
+            <h2 class="student-name">JOHN SMITH</h2>
+            <p class="student-title">Computer Science Student</p>
+            
+            <div class="student-info">
+                <div class="info-card">
+                    <h3>Academic Year</h3>
+                    <p>3rd Year | Class of 2026</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Major</h3>
+                    <p>Bachelor of Science in Computer Science</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>GPA</h3>
+                    <p>3.85 / 4.0</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>University</h3>
+                    <p>Tech University</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Specialization</h3>
+                    <p>Web Development & AI</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Expected Graduation</h3>
+                    <p>May 2026</p>
                 </div>
             </div>
         </div>
-
+        
+        <div class="button-section">
+            <h2>EXPLORE MY WORK</h2>
+            <div class="button-container">
+                <a href="#projects" class="spider-button">
+                    <span>🚀 MY PROJECTS</span>
+                </a>
+                <a href="#assignments" class="spider-button">
+                    <span>📚 ASSIGNMENTS</span>
+                </a>
+                <a href="#portfolio" class="spider-button">
+                    <span>🎨 PORTFOLIO</span>
+                </a>
+            </div>
+        </div>
+    </div>
     
     <footer>
-        <p>&copy; 2025 All rights reserved.</p>
+        <div class="footer-logo">🎓</div>
+        <p>&copy; 2025 Student Portfolio. All rights reserved.</p>
     </footer>
 </body>
 </html>
