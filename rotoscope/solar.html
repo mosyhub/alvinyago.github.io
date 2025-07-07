@@ -177,6 +177,77 @@
                 padding: 1rem 0;
             }
         }
+
+    .planet-age-converter {
+    padding: 2rem;
+    text-align: center;
+    background-color: #1a1a1a;
+        }
+
+        .planet-age-converter h2 {
+            font-size: 2rem;
+            color: #ffa500;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 4px #ff6600;
+        }
+
+        .age-input {
+            margin-bottom: 1.5rem;
+        }
+
+        .age-input input {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            width: 200px;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+            margin-right: 0.5rem;
+        }
+
+        .age-input button {
+            padding: 0.5rem 1.2rem;
+            font-size: 1rem;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .age-input button:hover {
+            background-color: #ff9900;
+            color: #000;
+        }
+
+        .age-input .note {
+            font-style: italic;
+            color: #f55;
+            margin-top: 0.5rem;
+        }
+
+        .planet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .planet-card {
+            background: #2c2c2c;
+            padding: 1rem;
+            border-radius: 10px;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(255, 153, 0, 0.2);
+            text-align: left;
+        }
+
+        .planet-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 0.5rem;
+        }
+       
     </style>
 </head>
 <body>
@@ -200,6 +271,17 @@
             <p>This video provides an overview of our solar system, showing the relative sizes and distances of the planets orbiting our Sun. The solar system formed 4.6 billion years ago from the gravitational collapse of a giant interstellar molecular cloud.</p>
         </div>
     </section>
+
+    <section class="planet-age-converter">
+    <h2>Earth time conversion for other Planets</h2>
+    <div class="age-input">
+        <input type="number" id="earthAge" placeholder="Enter Earth Years">
+        <button onclick="convertAge()">Enter</button>
+        <p class="note">Enter an Earth year value to see how time passes on other planets.</p>
+    </div>
+    <div class="planet-grid" id="planetGrid"></div>
+    </section>
+
 
     <!-- Mercury Section -->
     <section class="planet-section">
@@ -288,5 +370,49 @@
             <p class="planet-description">Neptune is the eighth and most distant planet from the Sun in the Solar System. It is the fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet. Neptune is 17 times the mass of Earth, slightly more massive than its near-twin Uranus.</p>
         </div>
     </section>
+
+<script>
+const planets = [
+    { name: "Mercury", orbit: 0.24, distance: "57.9 million km", image: "🪐" },
+    { name: "Venus", orbit: 0.62, distance: "108.2 million km", image: "🪐" },
+    { name: "Earth", orbit: 1.00, distance: "149.6 million km", image: "🌍" },
+    { name: "Mars", orbit: 1.88, distance: "227.9 million km", image: "🪐" },
+    { name: "Jupiter", orbit: 11.86, distance: "778.5 million km", image: "🪐" },
+    { name: "Saturn", orbit: 29.45, distance: "1.43 billion km", image: "🪐" },
+    { name: "Uranus", orbit: 84.02, distance: "2.87 billion km", image: "🪐" },
+    { name: "Neptune", orbit: 164.79, distance: "4.50 billion km", image: "🪐" },
+    { name: "Pluto", orbit: 248.00, distance: "5.91 billion km", image: "🪐" },
+];
+
+function convertAge() {
+    const input = parseFloat(document.getElementById("earthAge").value);
+    const container = document.getElementById("planetGrid");
+    container.innerHTML = "";
+
+    if (isNaN(input) || input <= 0) {
+        container.innerHTML = "<p style='color:red;'>Please enter a valid positive number.</p>";
+        return;
+    }
+
+    planets.forEach(p => {
+        const age = (input / p.orbit).toFixed(2);
+        const revolutions = Math.floor(input / p.orbit);
+
+        const card = `
+            <div class="planet-card">
+                <div style="font-size: 3rem;">${p.image}</div>
+                <h3>${p.name}</h3>
+                <p><strong>Age:</strong> ${age} years</p>
+                <p><strong>Revolutions:</strong> ${revolutions}</p>
+                <p><strong>Orbit Time:</strong> ${p.orbit} Earth years</p>
+                <p><strong>Distance:</strong> ${p.distance}</p>
+            </div>
+        `;
+        container.innerHTML += card;
+    });
+}
+</script>
+
+
 </body>
 </html>
