@@ -15,83 +15,136 @@
             background-image: radial-gradient(circle at center, #111 0%, #000 100%);
         }
 
-        .stars {
-            position: fixed;
+        /* Header Styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 165, 0, 0.3);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
         }
 
-        .star {
-            position: absolute;
-            background-color: #fff;
-            border-radius: 50%;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff9900;
+            text-shadow: 0 0 5px #ff6600;
         }
 
-        .solar-system {
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
             position: relative;
+        }
+
+        nav a:hover {
+            color: #ff9900;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ff9900;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
             width: 100%;
-            height: 100vh;
+        }
+
+        /* Solar System Display */
+        .solar-system-display {
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            padding: 2rem;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .sun {
-            position: absolute;
             width: 100px;
             height: 100px;
             background: radial-gradient(circle at center, #ffde00 0%, #ff9900 50%, #ff3300 100%);
             border-radius: 50%;
-            box-shadow: 0 0 50px #ff6600, 0 0 100px #ff9900;
-            z-index: 10;
+            box-shadow: 0 0 50px #ff6600;
+            position: relative;
         }
 
-        .orbit {
-            position: absolute;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transform-origin: center;
+        .planets-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 800px;
         }
 
         .planet {
-            position: absolute;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            transform-origin: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            position: relative;
         }
 
-        .mercury { background: linear-gradient(45deg, #b5b5b5, #7a7a7a); }
-        .venus { background: linear-gradient(45deg, #e6a176, #b5764a); }
-        .earth { background: linear-gradient(45deg, #6b93d6, #1a4b8c); }
-        .mars { background: linear-gradient(45deg, #c1440e, #9c3a10); }
-        .jupiter { background: linear-gradient(45deg, #e3b68d, #b88a5b); }
-        .saturn { background: linear-gradient(45deg, #e7d9a9, #d4c68b); }
-        .uranus { background: linear-gradient(45deg, #d1e7e7, #a8d8d8); }
-        .neptune { background: linear-gradient(45deg, #5b5ddf, #3a3bbf); }
+        .planet-name {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #ccc;
+        }
 
-        .saturn-rings {
+        .mercury { background: linear-gradient(45deg, #b5b5b5, #7a7a7a); width: 30px; height: 30px; }
+        .venus { background: linear-gradient(45deg, #e6a176, #b5764a); width: 45px; height: 45px; }
+        .earth { background: linear-gradient(45deg, #6b93d6, #1a4b8c); width: 50px; height: 50px; }
+        .mars { background: linear-gradient(45deg, #c1440e, #9c3a10); width: 40px; height: 40px; }
+        .jupiter { background: linear-gradient(45deg, #e3b68d, #b88a5b); width: 80px; height: 80px; }
+        .saturn { background: linear-gradient(45deg, #e7d9a9, #d4c68b); width: 70px; height: 70px; }
+        .uranus { background: linear-gradient(45deg, #d1e7e7, #a8d8d8); width: 55px; height: 55px; }
+        .neptune { background: linear-gradient(45deg, #5b5ddf, #3a3bbf); width: 55px; height: 55px; }
+
+        .saturn::after {
+            content: '';
             position: absolute;
             width: 140%;
-            height: 140%;
-            border: 10px solid rgba(210, 180, 140, 0.5);
-            border-radius: 50%;
-            transform: rotate(20deg);
-            top: -20%;
-            left: -20%;
+            height: 10px;
+            background: rgba(210, 180, 140, 0.5);
+            border-radius: 5px;
+            top: 50%;
+            transform: translateY(-50%) rotate(20deg);
         }
 
+        /* Content Styles */
         .content {
             padding: 2rem;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 2rem auto;
             background-color: rgba(0, 0, 0, 0.7);
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 100, 255, 0.3);
-            position: relative;
-            z-index: 100;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         h1 {
@@ -99,15 +152,24 @@
             color: #ff9900;
             text-shadow: 0 0 10px #ff6600;
             font-size: 2.5rem;
+            margin-top: 0;
         }
 
         p {
             line-height: 1.6;
+            color: #ddd;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .solar-system {
-                height: 50vh;
+            header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
             }
             
             .sun {
@@ -115,111 +177,62 @@
                 height: 60px;
             }
             
-            .content {
-                margin-top: 50vh;
+            .planet {
+                width: 40px;
+                height: 40px;
             }
+            
+            .jupiter { width: 60px; height: 60px; }
+            .saturn { width: 50px; height: 50px; }
         }
     </style>
 </head>
 <body>
-    <div class="stars" id="stars"></div>
-    
-    <div class="solar-system">
+    <header>
+        <div class="logo">Solar System</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Solar System</a></li>
+                <li><a href="#">Rotoscope</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="solar-system-display">
         <div class="sun"></div>
-        
-        <!-- Orbits and planets will be added by JavaScript -->
+        <div class="planets-container">
+            <div class="planet mercury">
+                <span class="planet-name">Mercury</span>
+            </div>
+            <div class="planet venus">
+                <span class="planet-name">Venus</span>
+            </div>
+            <div class="planet earth">
+                <span class="planet-name">Earth</span>
+            </div>
+            <div class="planet mars">
+                <span class="planet-name">Mars</span>
+            </div>
+            <div class="planet jupiter">
+                <span class="planet-name">Jupiter</span>
+            </div>
+            <div class="planet saturn">
+                <span class="planet-name">Saturn</span>
+            </div>
+            <div class="planet uranus">
+                <span class="planet-name">Uranus</span>
+            </div>
+            <div class="planet neptune">
+                <span class="planet-name">Neptune</span>
+            </div>
+        </div>
     </div>
-    
+
     <div class="content">
-        <h1>Welcome to My Solar System</h1>
-        <p>This is a cosmic-themed webpage featuring an animated solar system. The planets orbit around the sun at different speeds, just like in our actual solar system.</p>
-        <p>You can replace this content with your own text, images, and other elements. The solar system in the background will continue to animate, creating an engaging space-themed experience for your visitors.</p>
+        <h1>Welcome to Our Solar System</h1>
+        <p>Our solar system consists of the Sun and everything bound to it by gravity - the planets Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune; dwarf planets such as Pluto; dozens of moons; and millions of asteroids, comets, and meteoroids.</p>
+        <p>This static display shows the relative sizes of the planets (though not to scale with their actual distances from the Sun). The Sun contains more than 99% of the mass of the entire solar system.</p>
     </div>
-
-    <script>
-        // Create stars
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 200; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            
-            // Random size between 1-3px
-            const size = Math.random() * 2 + 1;
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-            
-            // Random position
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.top = `${Math.random() * 100}%`;
-            
-            // Random opacity
-            star.style.opacity = Math.random();
-            
-            starsContainer.appendChild(star);
-        }
-
-        // Solar system data
-        const planets = [
-            { name: 'mercury', distance: 120, size: 8, speed: 4.1, color: '#b5b5b5' },
-            { name: 'venus', distance: 160, size: 12, speed: 1.6, color: '#e6a176' },
-            { name: 'earth', distance: 200, size: 12, speed: 1, color: '#6b93d6' },
-            { name: 'mars', distance: 250, size: 10, speed: 0.5, color: '#c1440e' },
-            { name: 'jupiter', distance: 350, size: 30, speed: 0.08, color: '#e3b68d' },
-            { name: 'saturn', distance: 420, size: 25, speed: 0.03, color: '#e7d9a9' },
-            { name: 'uranus', distance: 480, size: 20, speed: 0.01, color: '#d1e7e7' },
-            { name: 'neptune', distance: 540, size: 20, speed: 0.006, color: '#5b5ddf' }
-        ];
-
-        const solarSystem = document.querySelector('.solar-system');
-
-        // Create orbits and planets
-        planets.forEach(planet => {
-            // Create orbit path
-            const orbit = document.createElement('div');
-            orbit.className = 'orbit';
-            orbit.style.width = `${planet.distance * 2}px`;
-            orbit.style.height = `${planet.distance * 2}px`;
-            solarSystem.appendChild(orbit);
-            
-            // Create planet
-            const planetElement = document.createElement('div');
-            planetElement.className = `planet ${planet.name}`;
-            planetElement.style.width = `${planet.size}px`;
-            planetElement.style.height = `${planet.size}px`;
-            planetElement.style.backgroundColor = planet.color;
-            
-            // Position planet at the start of its orbit
-            planetElement.style.left = `${planet.distance}px`;
-            planetElement.style.top = `0px`;
-            
-            solarSystem.appendChild(planetElement);
-            
-            // Add rings to Saturn
-            if (planet.name === 'saturn') {
-                const rings = document.createElement('div');
-                rings.className = 'saturn-rings';
-                planetElement.appendChild(rings);
-            }
-            
-            // Animate the planet
-            animatePlanet(planetElement, planet.distance, planet.speed);
-        });
-
-        function animatePlanet(planet, distance, speed) {
-            let angle = 0;
-            
-            function movePlanet() {
-                angle += 0.005 * speed;
-                const x = Math.cos(angle) * distance;
-                const y = Math.sin(angle) * distance;
-                
-                planet.style.transform = `translate(${x}px, ${y}px)`;
-                
-                requestAnimationFrame(movePlanet);
-            }
-            
-            movePlanet();
-        }
-    </script>
 </body>
 </html>
