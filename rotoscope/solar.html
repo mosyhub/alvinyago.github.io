@@ -148,6 +148,116 @@
             color: #ddd;
         }
 
+        /* Time Conversion Styles */
+        .planet-age-converter {
+            padding: 3rem 2rem;
+            text-align: center;
+            background-color: #1a1a1a;
+            margin: 4rem 0;
+            border-top: 2px solid rgba(255, 165, 0, 0.3);
+            border-bottom: 2px solid rgba(255, 165, 0, 0.3);
+        }
+
+        .planet-age-converter h2 {
+            font-size: 2.5rem;
+            color: #ffa500;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px #ff6600;
+        }
+
+        .age-input {
+            margin-bottom: 2rem;
+        }
+
+        .age-input input {
+            padding: 0.8rem 1.2rem;
+            font-size: 1.1rem;
+            width: 250px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 165, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            outline: none;
+            margin-right: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .age-input input:focus {
+            border-color: #ff9900;
+        }
+
+        .age-input button {
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            border: none;
+            background-color: #ff9900;
+            color: #000;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .age-input button:hover {
+            background-color: #ffbb33;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 153, 0, 0.3);
+        }
+
+        .age-input .note {
+            font-style: italic;
+            color: #ccc;
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
+        .planet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .planet-card {
+            background: linear-gradient(145deg, #2c2c2c, #1a1a1a);
+            padding: 1.5rem;
+            border-radius: 12px;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(255, 153, 0, 0.2);
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 165, 0, 0.2);
+        }
+
+        .planet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
+        }
+
+        .planet-card .planet-emoji {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .planet-card h3 {
+            color: #ff9900;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .planet-card p {
+            margin: 0.5rem 0;
+            color: #ddd;
+        }
+
+        .planet-card strong {
+            color: #fff;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             header {
@@ -176,78 +286,22 @@
             .planet-info {
                 padding: 1rem 0;
             }
-        }
 
-    .planet-age-converter {
-    padding: 2rem;
-    text-align: center;
-    background-color: #1a1a1a;
-        }
+            .planet-age-converter {
+                padding: 2rem 1rem;
+            }
 
-        .planet-age-converter h2 {
-            font-size: 2rem;
-            color: #ffa500;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 4px #ff6600;
-        }
+            .age-input input {
+                width: 200px;
+                margin-bottom: 1rem;
+                margin-right: 0;
+            }
 
-        .age-input {
-            margin-bottom: 1.5rem;
+            .planet-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
         }
-
-        .age-input input {
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            width: 200px;
-            border-radius: 6px;
-            border: none;
-            outline: none;
-            margin-right: 0.5rem;
-        }
-
-        .age-input button {
-            padding: 0.5rem 1.2rem;
-            font-size: 1rem;
-            border: none;
-            background-color: #333;
-            color: #fff;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .age-input button:hover {
-            background-color: #ff9900;
-            color: #000;
-        }
-
-        .age-input .note {
-            font-style: italic;
-            color: #f55;
-            margin-top: 0.5rem;
-        }
-
-        .planet-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .planet-card {
-            background: #2c2c2c;
-            padding: 1rem;
-            border-radius: 10px;
-            color: #fff;
-            box-shadow: 0 0 10px rgba(255, 153, 0, 0.2);
-            text-align: left;
-        }
-
-        .planet-card img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 0.5rem;
-        }
-       
     </style>
 </head>
 <body>
@@ -272,17 +326,6 @@
         </div>
     </section>
 
-    <section class="planet-age-converter">
-    <h2>Earth time conversion for other Planets</h2>
-    <div class="age-input">
-        <input type="number" id="earthAge" placeholder="Enter Earth Years">
-        <button onclick="convertAge()">Enter</button>
-        <p class="note">Enter an Earth year value to see how time passes on other planets.</p>
-    </div>
-    <div class="planet-grid" id="planetGrid"></div>
-    </section>
-
-
     <!-- Mercury Section -->
     <section class="planet-section">
         <div class="planet-video">
@@ -290,7 +333,7 @@
         </div>
         <div class="planet-info">
             <h2 class="planet-title">Mercury</h2>
-            <p class="planet-description">Mercury is the smallest and innermost planet in the Solar System. Its orbit around the Sun takes only 87.97 Earth days, the shortest of all the planets. It is named after the Roman god Mercurius (Mercury), god of commerce, messenger of the gods, and mediator between gods and mortals.</p>
+            <p class="planet-description">Mercury is the smallest and innermost planet in the Solar System. Its orbit around the Sun takes only 87.97 Earth days, the shortest of all the planets. It is named after the Roman god Mercurius (Mercury), god of commerce, messenger of the gods, and mediator between gods and mortals. With extreme temperature variations, Mercury experiences scorching days up to 800°F (430°C) and freezing nights down to -300°F (-180°C).</p>
         </div>
     </section>
 
@@ -301,7 +344,7 @@
         </div>
         <div class="planet-info">
             <h2 class="planet-title">Venus</h2>
-            <p class="planet-description">Venus is the second planet from the Sun and Earth's closest planetary neighbor. It's one of the four terrestrial planets, and it's often called Earth's twin because it's similar in size and density. However, Venus has a toxic atmosphere of carbon dioxide with clouds of sulfuric acid.</p>
+            <p class="planet-description">Venus is the second planet from the Sun and Earth's closest planetary neighbor. It's one of the four terrestrial planets, and it's often called Earth's twin because it's similar in size and density. However, Venus has a toxic atmosphere of carbon dioxide with clouds of sulfuric acid. The surface temperature reaches 900°F (475°C), making it the hottest planet in our solar system due to its extreme greenhouse effect.</p>
         </div>
     </section>
 
@@ -312,7 +355,7 @@
         </div>
         <div class="planet-info">
             <h2 class="planet-title">Earth</h2>
-            <p class="planet-description">Earth is the third planet from the Sun and the only astronomical object known to harbor life. About 29% of Earth's surface is land consisting of continents and islands. The remaining 71% is covered with water, mostly by oceans but also by lakes, rivers and other fresh water.</p>
+            <p class="planet-description">Earth is the third planet from the Sun and the only astronomical object known to harbor life. About 29% of Earth's surface is land consisting of continents and islands. The remaining 71% is covered with water, mostly by oceans but also by lakes, rivers and other fresh water. Earth's atmosphere contains 78% nitrogen and 21% oxygen, creating the perfect conditions for life as we know it.</p>
         </div>
     </section>
 
@@ -323,7 +366,7 @@
         </div>
         <div class="planet-info">
             <h2 class="planet-title">Mars</h2>
-            <p class="planet-description">Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, being larger than only Mercury. In English, Mars carries the name of the Roman god of war and is often referred to as the "Red Planet" due to the iron oxide prevalent on its surface.</p>
+            <p class="planet-description">Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, being larger than only Mercury. In English, Mars carries the name of the Roman god of war and is often referred to as the "Red Planet" due to the iron oxide prevalent on its surface. Mars has two small moons, Phobos and Deimos, and evidence suggests it once had liquid water on its surface.</p>
         </div>
     </section>
 
@@ -334,7 +377,7 @@
         </div>
         <div class="planet-info">
             <h2 class="planet-title">Jupiter</h2>
-            <p class="planet-description">Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass more than two and a half times that of all the other planets in the Solar System combined. Jupiter is one of the brightest objects visible to the naked eye in the night sky.</p>
+            <p class="planet-description">Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass more than two and a half times that of all the other planets in the Solar System combined. Jupiter is one of the brightest objects visible to the naked eye in the night sky. It has over 80 known moons, including the four largest called the Galilean moons: Io, Europa, Ganymede, and Callisto.</p>
         </div>
     </section>
 
@@ -345,7 +388,7 @@
         </div>
         <div class="planet-info">
             <h2 class="planet-title">Saturn</h2>
-            <p class="planet-description">Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius of about nine times that of Earth. Saturn is most famous for its prominent ring system, which is composed mostly of ice particles with a smaller amount of rocky debris and dust.</p>
+            <p class="planet-description">Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius of about nine times that of Earth. Saturn is most famous for its prominent ring system, which is composed mostly of ice particles with a smaller amount of rocky debris and dust. Saturn has 146 known moons, with Titan being the largest and most Earth-like.</p>
         </div>
     </section>
 
@@ -356,7 +399,7 @@
         </div>
         <div class="planet-info">
             <h2 class="planet-title">Uranus</h2>
-            <p class="planet-description">Uranus is the seventh planet from the Sun and has the third-largest diameter in our solar system. It was the first planet found with the aid of a telescope. Uranus is an ice giant, with most of its mass made up of a hot dense fluid of "icy" materials - water, methane, and ammonia - above a small rocky core.</p>
+            <p class="planet-description">Uranus is the seventh planet from the Sun and has the third-largest diameter in our solar system. It was the first planet found with the aid of a telescope. Uranus is an ice giant, with most of its mass made up of a hot dense fluid of "icy" materials - water, methane, and ammonia - above a small rocky core. Uniquely, Uranus rotates on its side, with an axial tilt of about 98 degrees.</p>
         </div>
     </section>
 
@@ -367,21 +410,32 @@
         </div>
         <div class="planet-info">
             <h2 class="planet-title">Neptune</h2>
-            <p class="planet-description">Neptune is the eighth and most distant planet from the Sun in the Solar System. It is the fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet. Neptune is 17 times the mass of Earth, slightly more massive than its near-twin Uranus.</p>
+            <p class="planet-description">Neptune is the eighth and most distant planet from the Sun in the Solar System. It is the fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet. Neptune is 17 times the mass of Earth, slightly more massive than its near-twin Uranus. Neptune has the strongest winds in the solar system, reaching speeds of up to 1,200 mph (2,100 km/h).</p>
         </div>
+    </section>
+
+    <!-- Time Conversion Section - Now positioned after planet descriptions -->
+    <section class="planet-age-converter">
+        <h2>Planetary Time Conversion</h2>
+        <div class="age-input">
+            <input type="number" id="earthAge" placeholder="Enter Earth Years">
+            <button onclick="convertAge()">Calculate</button>
+            <p class="note">Enter an Earth year value to see how time passes on other planets and discover your age across the solar system.</p>
+        </div>
+        <div class="planet-grid" id="planetGrid"></div>
     </section>
 
 <script>
 const planets = [
-    { name: "Mercury", orbit: 0.24, distance: "57.9 million km", image: "🪐" },
-    { name: "Venus", orbit: 0.62, distance: "108.2 million km", image: "🪐" },
+    { name: "Mercury", orbit: 0.24, distance: "57.9 million km", image: "☿️" },
+    { name: "Venus", orbit: 0.62, distance: "108.2 million km", image: "♀️" },
     { name: "Earth", orbit: 1.00, distance: "149.6 million km", image: "🌍" },
-    { name: "Mars", orbit: 1.88, distance: "227.9 million km", image: "🪐" },
-    { name: "Jupiter", orbit: 11.86, distance: "778.5 million km", image: "🪐" },
-    { name: "Saturn", orbit: 29.45, distance: "1.43 billion km", image: "🪐" },
-    { name: "Uranus", orbit: 84.02, distance: "2.87 billion km", image: "🪐" },
-    { name: "Neptune", orbit: 164.79, distance: "4.50 billion km", image: "🪐" },
-    { name: "Pluto", orbit: 248.00, distance: "5.91 billion km", image: "🪐" },
+    { name: "Mars", orbit: 1.88, distance: "227.9 million km", image: "♂️" },
+    { name: "Jupiter", orbit: 11.86, distance: "778.5 million km", image: "♃" },
+    { name: "Saturn", orbit: 29.45, distance: "1.43 billion km", image: "♄" },
+    { name: "Uranus", orbit: 84.02, distance: "2.87 billion km", image: "♅" },
+    { name: "Neptune", orbit: 164.79, distance: "4.50 billion km", image: "♆" },
+    { name: "Pluto", orbit: 248.00, distance: "5.91 billion km", image: "♇" },
 ];
 
 function convertAge() {
@@ -390,7 +444,7 @@ function convertAge() {
     container.innerHTML = "";
 
     if (isNaN(input) || input <= 0) {
-        container.innerHTML = "<p style='color:red;'>Please enter a valid positive number.</p>";
+        container.innerHTML = "<div style='grid-column: 1 / -1; text-align: center; color: #ff6b6b; font-size: 1.2rem;'>Please enter a valid positive number.</div>";
         return;
     }
 
@@ -400,19 +454,18 @@ function convertAge() {
 
         const card = `
             <div class="planet-card">
-                <div style="font-size: 3rem;">${p.image}</div>
+                <div class="planet-emoji">${p.image}</div>
                 <h3>${p.name}</h3>
-                <p><strong>Age:</strong> ${age} years</p>
-                <p><strong>Revolutions:</strong> ${revolutions}</p>
-                <p><strong>Orbit Time:</strong> ${p.orbit} Earth years</p>
-                <p><strong>Distance:</strong> ${p.distance}</p>
+                <p><strong>Your Age:</strong> ${age} years</p>
+                <p><strong>Birthdays:</strong> ${revolutions}</p>
+                <p><strong>Orbital Period:</strong> ${p.orbit} Earth years</p>
+                <p><strong>Distance from Sun:</strong> ${p.distance}</p>
             </div>
         `;
         container.innerHTML += card;
     });
 }
 </script>
-
 
 </body>
 </html>
