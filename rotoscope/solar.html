@@ -72,90 +72,78 @@
             width: 100%;
         }
 
-        /* Solar System Display */
-        .solar-system-display {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .sun {
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle at center, #ffde00 0%, #ff9900 50%, #ff3300 100%);
-            border-radius: 50%;
-            box-shadow: 0 0 50px #ff6600;
-            position: relative;
-        }
-
-        .planets-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            max-width: 800px;
-        }
-
-        .planet {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+        /* Video Container Styles */
+        .video-section {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-end;
-            position: relative;
-        }
-
-        .planet-name {
-            margin-top: 0.5rem;
-            font-size: 0.8rem;
-            color: #ccc;
-        }
-
-        .mercury { background: linear-gradient(45deg, #b5b5b5, #7a7a7a); width: 30px; height: 30px; }
-        .venus { background: linear-gradient(45deg, #e6a176, #b5764a); width: 45px; height: 45px; }
-        .earth { background: linear-gradient(45deg, #6b93d6, #1a4b8c); width: 50px; height: 50px; }
-        .mars { background: linear-gradient(45deg, #c1440e, #9c3a10); width: 40px; height: 40px; }
-        .jupiter { background: linear-gradient(45deg, #e3b68d, #b88a5b); width: 80px; height: 80px; }
-        .saturn { background: linear-gradient(45deg, #e7d9a9, #d4c68b); width: 70px; height: 70px; }
-        .uranus { background: linear-gradient(45deg, #d1e7e7, #a8d8d8); width: 55px; height: 55px; }
-        .neptune { background: linear-gradient(45deg, #5b5ddf, #3a3bbf); width: 55px; height: 55px; }
-
-        .saturn::after {
-            content: '';
-            position: absolute;
-            width: 140%;
-            height: 10px;
-            background: rgba(210, 180, 140, 0.5);
-            border-radius: 5px;
-            top: 50%;
-            transform: translateY(-50%) rotate(20deg);
-        }
-
-        /* Content Styles */
-        .content {
             padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
             max-width: 800px;
-            margin: 2rem auto;
+            margin-bottom: 2rem;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 165, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.2);
+        }
+
+        .video-description {
             background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 100, 255, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 800px;
+            margin-top: 1rem;
         }
 
-        h1 {
-            text-align: center;
+        /* Planet Section Styles */
+        .planet-section {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .planet-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .planet-video {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .planet-video iframe {
+            width: 100%;
+            height: 315px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 165, 0, 0.3);
+        }
+
+        .planet-info {
+            flex: 1;
+            padding: 0 2rem;
+        }
+
+        .planet-title {
             color: #ff9900;
-            text-shadow: 0 0 10px #ff6600;
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-top: 0;
+            text-shadow: 0 0 5px #ff6600;
         }
 
-        p {
+        .planet-description {
             line-height: 1.6;
             color: #ddd;
         }
@@ -172,18 +160,22 @@
                 gap: 1rem;
             }
             
-            .sun {
-                width: 60px;
-                height: 60px;
+            .video-container iframe {
+                height: 250px;
             }
             
-            .planet {
-                width: 40px;
-                height: 40px;
+            .planet-section {
+                flex-direction: column;
+                padding: 0 1rem;
             }
             
-            .jupiter { width: 60px; height: 60px; }
-            .saturn { width: 50px; height: 50px; }
+            .planet-section:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .planet-info {
+                padding: 1rem 0;
+            }
         }
     </style>
 </head>
@@ -199,16 +191,102 @@
         </nav>
     </header>
 
-    
     <section class="video-section">
-        <!-- PASTE YOUR YOUTUBE EMBED CODE HERE -->
-        <!-- Example: Replace this with your iframe code -->
         <div class="video-container">
-             <iframe width="560" height="315" src="https://www.youtube.com/embed/jWQx2f-CErU?si=TjuMEKetZLZ06ice" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/jWQx2f-CErU?si=TjuMEKetZLZ06ice" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        <!-- END OF YOUTUBE EMBED CODE -->
+        <div class="video-description">
+            <h2>Our Solar System</h2>
+            <p>This video provides an overview of our solar system, showing the relative sizes and distances of the planets orbiting our Sun. The solar system formed 4.6 billion years ago from the gravitational collapse of a giant interstellar molecular cloud.</p>
+        </div>
     </section>
 
-    
+    <!-- Mercury Section -->
+    <section class="planet-section">
+        <div class="planet-video">
+            <iframe src="https://www.youtube.com/embed/0KBjnNuhRHs" title="Mercury Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="planet-info">
+            <h2 class="planet-title">Mercury</h2>
+            <p class="planet-description">Mercury is the smallest and innermost planet in the Solar System. Its orbit around the Sun takes only 87.97 Earth days, the shortest of all the planets. It is named after the Roman god Mercurius (Mercury), god of commerce, messenger of the gods, and mediator between gods and mortals.</p>
+        </div>
+    </section>
+
+    <!-- Venus Section -->
+    <section class="planet-section">
+        <div class="planet-video">
+            <iframe src="https://www.youtube.com/embed/Bq1ALw5bb6A" title="Venus Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="planet-info">
+            <h2 class="planet-title">Venus</h2>
+            <p class="planet-description">Venus is the second planet from the Sun and Earth's closest planetary neighbor. It's one of the four terrestrial planets, and it's often called Earth's twin because it's similar in size and density. However, Venus has a toxic atmosphere of carbon dioxide with clouds of sulfuric acid.</p>
+        </div>
+    </section>
+
+    <!-- Earth Section -->
+    <section class="planet-section">
+        <div class="planet-video">
+            <iframe src="https://www.youtube.com/embed/IDhapt7nw4A" title="Earth Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="planet-info">
+            <h2 class="planet-title">Earth</h2>
+            <p class="planet-description">Earth is the third planet from the Sun and the only astronomical object known to harbor life. About 29% of Earth's surface is land consisting of continents and islands. The remaining 71% is covered with water, mostly by oceans but also by lakes, rivers and other fresh water.</p>
+        </div>
+    </section>
+
+    <!-- Mars Section -->
+    <section class="planet-section">
+        <div class="planet-video">
+            <iframe src="https://www.youtube.com/embed/D8pnmwOXhoY" title="Mars Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="planet-info">
+            <h2 class="planet-title">Mars</h2>
+            <p class="planet-description">Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, being larger than only Mercury. In English, Mars carries the name of the Roman god of war and is often referred to as the "Red Planet" due to the iron oxide prevalent on its surface.</p>
+        </div>
+    </section>
+
+    <!-- Jupiter Section -->
+    <section class="planet-section">
+        <div class="planet-video">
+            <iframe src="https://www.youtube.com/embed/PtkqwslbLY8" title="Jupiter Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="planet-info">
+            <h2 class="planet-title">Jupiter</h2>
+            <p class="planet-description">Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass more than two and a half times that of all the other planets in the Solar System combined. Jupiter is one of the brightest objects visible to the naked eye in the night sky.</p>
+        </div>
+    </section>
+
+    <!-- Saturn Section -->
+    <section class="planet-section">
+        <div class="planet-video">
+            <iframe src="https://www.youtube.com/embed/epZdZaEQhS0" title="Saturn Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="planet-info">
+            <h2 class="planet-title">Saturn</h2>
+            <p class="planet-description">Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius of about nine times that of Earth. Saturn is most famous for its prominent ring system, which is composed mostly of ice particles with a smaller amount of rocky debris and dust.</p>
+        </div>
+    </section>
+
+    <!-- Uranus Section -->
+    <section class="planet-section">
+        <div class="planet-video">
+            <iframe src="https://www.youtube.com/embed/m4NXbFOiOGk" title="Uranus Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="planet-info">
+            <h2 class="planet-title">Uranus</h2>
+            <p class="planet-description">Uranus is the seventh planet from the Sun and has the third-largest diameter in our solar system. It was the first planet found with the aid of a telescope. Uranus is an ice giant, with most of its mass made up of a hot dense fluid of "icy" materials - water, methane, and ammonia - above a small rocky core.</p>
+        </div>
+    </section>
+
+    <!-- Neptune Section -->
+    <section class="planet-section">
+        <div class="planet-video">
+            <iframe src="https://www.youtube.com/embed/NStn7zZKXfE" title="Neptune Video" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="planet-info">
+            <h2 class="planet-title">Neptune</h2>
+            <p class="planet-description">Neptune is the eighth and most distant planet from the Sun in the Solar System. It is the fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet. Neptune is 17 times the mass of Earth, slightly more massive than its near-twin Uranus.</p>
+        </div>
+    </section>
 </body>
 </html>
