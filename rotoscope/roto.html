@@ -3,76 +3,488 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Rotoscope Website</title>
+    <title>Digital Canvas | Modern Art Gallery</title>
     <style>
-        /* Rotoscope-inspired color palette */
+        /* Global Styles */
         :root {
-            --dark-bg: #121212;
-            --highlight: #ff3366;
-            --secondary: #33ccff;
-            --text: #f0f0f0;
+            --primary: #6C5CE7;
+            --secondary: #00CEF5;
+            --dark: #2D3436;
+            --light: #F5F6FA;
+            --accent: #FD79A8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: var(--dark-bg);
-            color: var(--text);
-            font-family: 'Courier New', monospace;
-            overflow-x: hidden;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
         }
         
-        .rotoscope-element {
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-links li:hover {
+            transform: translateY(-3px);
+            color: var(--accent);
+        }
+        
+        .cta-button {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(253, 121, 168, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            margin-top: 80px;
+            background: url('https://images.unsplash.com/photo-1579547945413-497e1b99dac0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
             position: relative;
-            filter: contrast(1.4) brightness(0.8);
-            mix-blend-mode: lighten;
         }
         
-        @keyframes rotoscope-flicker {
-            0%, 100% { opacity: 1; }
-            20% { opacity: 0.9; }
-            50% { opacity: 0.95; }
-            80% { opacity: 0.85; }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(108, 92, 231, 0.8), rgba(0, 206, 245, 0.6));
         }
         
-        .header {
-            animation: rotoscope-flicker 2s infinite;
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .art-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .art-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .art-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .art-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .art-card:hover .art-img img {
+            transform: scale(1.1);
+        }
+        
+        .art-info {
+            padding: 1.5rem;
+            text-align: left;
+        }
+        
+        .art-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .art-artist {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .art-price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .footer-section p, .footer-section a {
+            margin-bottom: 0.8rem;
+            display: block;
+            color: #bbb;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .nav-links li {
+                margin-left: 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <!-- Your rotoscope header content -->
+    <!-- Header/Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Digital<span>Canvas</span></div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="cta-button">Sign In</a></li>
+            </ul>
+        </nav>
     </header>
     
-    <main>
-        <section class="hero">
-            <video autoplay muted loop class="rotoscope-bg">
-                <source src="rotoscope-background.mp4" type="video/mp4">
-            </video>
-            <div class="hero-content">
-                <h1>Frame by Frame Artistry</h1>
-                <button class="cta-button">Explore Rotoscoping</button>
-            </div>
-        </section>
-        
-        <section class="gallery">
-            <!-- Rotoscope gallery items -->
-        </section>
-    </main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Explore the World of Digital Art</h1>
+            <p>Discover stunning digital creations from talented artists around the globe. Find inspiration or showcase your own work in our vibrant community.</p>
+            <a href="#gallery" class="cta-button">View Gallery</a>
+        </div>
+    </section>
     
-    <footer>
-        <!-- Animated footer elements -->
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2 class="section-title">Featured Artworks</h2>
+        <div class="art-grid">
+            <!-- Artwork 1 -->
+            <div class="art-card">
+                <div class="art-img">
+                    <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Digital painting of abstract shapes">
+                </div>
+                <div class="art-info">
+                    <h3 class="art-title">Cosmic Harmony</h3>
+                    <p class="art-artist">by Alex Chen</p>
+                    <p class="art-price">$450</p>
+                </div>
+            </div>
+            
+            <!-- Artwork 2 -->
+            <div class="art-card">
+                <div class="art-img">
+                    <img src="https://images.unsplash.com/photo-1579547945413-497e1b99dac0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Colorful digital landscape">
+                </div>
+                <div class="art-info">
+                    <h3 class="art-title">Neon Dreams</h3>
+                    <p class="art-artist">by Maria Rodriguez</p>
+                    <p class="art-price">$380</p>
+                </div>
+            </div>
+            
+            <!-- Artwork 3 -->
+            <div class="art-card">
+                <div class="art-img">
+                    <img src="https://images.unsplash.com/photo-1579547621113-e4bb2a19bdd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Abstract digital composition">
+                </div>
+                <div class="art-info">
+                    <h3 class="art-title">Digital Waves</h3>
+                    <p class="art-artist">by James Wilson</p>
+                    <p class="art-price">$520</p>
+                </div>
+            </div>
+            
+            <!-- Artwork 4 -->
+            <div class="art-card">
+                <div class="art-img">
+                    <img src="https://images.unsplash.com/photo-1579547621113-e4bb2a19bdd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Futuristic cityscape">
+                </div>
+                <div class="art-info">
+                    <h3 class="art-title">Metropolis 2.0</h3>
+                    <p class="art-artist">by Sarah Johnson</p>
+                    <p class="art-price">$600</p>
+                </div>
+            </div>
+            
+            <!-- Artwork 5 -->
+            <div class="art-card">
+                <div class="art-img">
+                    <img src="https://images.unsplash.com/photo-1579547621113-e4bb2a19bdd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Surreal portrait">
+                </div>
+                <div class="art-info">
+                    <h3 class="art-title">Ethereal</h3>
+                    <p class="art-artist">by David Kim</p>
+                    <p class="art-price">$420</p>
+                </div>
+            </div>
+            
+            <!-- Artwork 6 -->
+            <div class="art-card">
+                <div class="art-img">
+                    <img src="https://images.unsplash.com/photo-1579547621113-e4bb2a19bdd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cyberpunk street scene">
+                </div>
+                <div class="art-info">
+                    <h3 class="art-title">Neon Nights</h3>
+                    <p class="art-artist">by Lisa Wong</p>
+                    <p class="art-price">$490</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">About Digital Canvas</h2>
+        <div class="about-content">
+            <p>Digital Canvas is a platform dedicated to showcasing and celebrating digital art in all its forms. We believe in the power of digital creativity to inspire, challenge, and transform.</p>
+            <p>Founded in 2020, our gallery has grown to feature works from over 500 artists worldwide. We provide a space for both established and emerging digital artists to share their work with a global audience.</p>
+            <p>Whether you're an artist looking to showcase your work, a collector searching for unique pieces, or simply an art enthusiast, Digital Canvas welcomes you to explore the limitless possibilities of digital art.</p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Digital Canvas</h3>
+                <p>Your gateway to the world of digital art. Explore, create, and be inspired.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#">Home</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Artist Submission</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>123 Art District, Creative City</p>
+                <p>hello@digitalcanvas.com</p>
+                <p>+1 (555) 123-4567</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Digital Canvas. All rights reserved.</p>
+        </div>
     </footer>
     
-    <script>
-        // JavaScript for interactive rotoscope effects
-        document.querySelectorAll('.rotoscope-element').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                el.style.filter = 'contrast(1.8) brightness(1.2)';
-            });
-            el.addEventListener('mouseleave', () => {
-                el.style.filter = 'contrast(1.4) brightness(0.8)';
-            });
-        });
-    </script>
+    <!-- Font Awesome for icons (would need to be added in a real project) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
