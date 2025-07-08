@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Rotoscope Website</title>
+    <style>
+        /* Rotoscope-inspired color palette */
+        :root {
+            --dark-bg: #121212;
+            --highlight: #ff3366;
+            --secondary: #33ccff;
+            --text: #f0f0f0;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden;
+        }
+        
+        .rotoscope-element {
+            position: relative;
+            filter: contrast(1.4) brightness(0.8);
+            mix-blend-mode: lighten;
+        }
+        
+        @keyframes rotoscope-flicker {
+            0%, 100% { opacity: 1; }
+            20% { opacity: 0.9; }
+            50% { opacity: 0.95; }
+            80% { opacity: 0.85; }
+        }
+        
+        .header {
+            animation: rotoscope-flicker 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <!-- Your rotoscope header content -->
+    </header>
+    
+    <main>
+        <section class="hero">
+            <video autoplay muted loop class="rotoscope-bg">
+                <source src="rotoscope-background.mp4" type="video/mp4">
+            </video>
+            <div class="hero-content">
+                <h1>Frame by Frame Artistry</h1>
+                <button class="cta-button">Explore Rotoscoping</button>
+            </div>
+        </section>
+        
+        <section class="gallery">
+            <!-- Rotoscope gallery items -->
+        </section>
+    </main>
+    
+    <footer>
+        <!-- Animated footer elements -->
+    </footer>
+    
+    <script>
+        // JavaScript for interactive rotoscope effects
+        document.querySelectorAll('.rotoscope-element').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                el.style.filter = 'contrast(1.8) brightness(1.2)';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.filter = 'contrast(1.4) brightness(0.8)';
+            });
+        });
+    </script>
+</body>
+</html>
