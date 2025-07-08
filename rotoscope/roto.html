@@ -18,23 +18,35 @@
       line-height: 1.6;
     }
 
+    /* HEADER */
     header {
-      text-align: center;
-      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
       background-color: #fff;
+      border-bottom: 2px solid #ccc;
     }
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #000;
     }
 
-    header h2 {
-      font-size: 1.2rem;
-      font-style: italic;
-      color: #444;
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s;
     }
 
+    nav a:hover {
+      color: #00aaaa;
+    }
+
+    /* MAIN VIDEO */
     .main-video {
       display: flex;
       justify-content: center;
@@ -57,8 +69,9 @@
       margin: 0 auto;
     }
 
+    /* WEEKLY PROGRESS */
     .progress {
-      padding: 2rem;
+      padding: 3rem 2rem;
       background-color: #eae0cb;
     }
 
@@ -68,8 +81,15 @@
       font-size: 2rem;
     }
 
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     .week {
-      margin-bottom: 2rem;
       text-align: center;
     }
 
@@ -78,12 +98,12 @@
     }
 
     .week video {
-      width: 90%;
-      max-width: 800px;
+      width: 100%;
       border-radius: 10px;
       box-shadow: 0 0 10px #333;
     }
 
+    /* TOOLS */
     .tools {
       padding: 2rem;
       background-color: #fff;
@@ -117,67 +137,75 @@
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
-    <h1>Rotoscope Project</h1>
-    <h2>In Adobe After Effects 2023</h2>
+    <div class="logo">Rotoscope</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="solar-system.html">Solar System</a>
+      <a href="rotoscope.html">Rotoscope</a>
+    </nav>
   </header>
 
+  <!-- MAIN VIDEO -->
   <section class="main-video">
     <video src="rotoscope.mp4" autoplay loop muted controls></video>
   </section>
 
+  <!-- DESCRIPTION -->
   <section class="description">
     <h2>About the Project</h2>
     <p>This rotoscope animation project involves frame-by-frame editing to isolate and stylize motion. It was done entirely using Adobe After Effects 2023 tools, combining manual brush work, keyframes, effects, and layering techniques.</p>
   </section>
 
+  <!-- WEEKLY PROGRESS -->
   <section class="progress">
     <h2>Weekly Progress</h2>
-
-    <!-- Loop for 10 weeks -->
-    <!-- Replace video src with actual clips -->
-    <div class="week">
-      <h3>Week 1</h3>
-      <video src="week1.mp4" controls></video>
-    </div>
-    <div class="week">
-      <h3>Week 2</h3>
-      <video src="week2.mp4" controls></video>
-    </div>
-    <div class="week">
-      <h3>Week 3</h3>
-      <video src="week3.mp4" controls></video>
-    </div>
-    <div class="week">
-      <h3>Week 4</h3>
-      <video src="week4.mp4" controls></video>
-    </div>
-    <div class="week">
-      <h3>Week 5</h3>
-      <video src="week5.mp4" controls></video>
-    </div>
-    <div class="week">
-      <h3>Week 6</h3>
-      <video src="week6.mp4" controls></video>
-    </div>
-    <div class="week">
-      <h3>Week 7</h3>
-      <video src="week7.mp4" controls></video>
-    </div>
-    <div class="week">
-      <h3>Week 8</h3>
-      <video src="week8.mp4" controls></video>
-    </div>
-    <div class="week">
-      <h3>Week 9</h3>
-      <video src="week9.mp4" controls></video>
-    </div>
-    <div class="week">
-      <h3>Week 10</h3>
-      <video src="week10.mp4" controls></video>
+    <div class="week-grid">
+      <div class="week">
+        <h3>Week 1</h3>
+        <video src="week1.mp4" controls></video>
+      </div>
+      <div class="week">
+        <h3>Week 2</h3>
+        <video src="week2.mp4" controls></video>
+      </div>
+      <div class="week">
+        <h3>Week 3</h3>
+        <video src="week3.mp4" controls></video>
+      </div>
+      <div class="week">
+        <h3>Week 4</h3>
+        <video src="week4.mp4" controls></video>
+      </div>
+      <div class="week">
+        <h3>Week 5</h3>
+        <video src="week5.mp4" controls></video>
+      </div>
+      <div class="week">
+        <h3>Week 6</h3>
+        <video src="week6.mp4" controls></video>
+      </div>
+      <div class="week">
+        <h3>Week 7</h3>
+        <video src="week7.mp4" controls></video>
+      </div>
+      <div class="week">
+        <h3>Week 8</h3>
+        <video src="week8.mp4" controls></video>
+      </div>
+      <div class="week">
+        <h3>Week 9</h3>
+        <video src="week9.mp4" controls></video>
+      </div>
+      <div class="week">
+        <h3>Week 10</h3>
+        <video src="week10.mp4" controls></video>
+      </div>
     </div>
   </section>
 
+  <!-- TOOLS -->
   <section class="tools">
     <h2>Tools Used</h2>
     <div class="tool-grid">
