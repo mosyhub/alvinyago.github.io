@@ -3,109 +3,210 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rotoscope Showcase</title>
+  <title>Rotoscope Project</title>
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
       font-family: 'Arial', sans-serif;
-      background: #111;
-      color: #fff;
+      background-color: #f4eedb;
+      color: #111;
       line-height: 1.6;
     }
 
     header {
-      background: #000;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background-color: #fff;
     }
 
     header h1 {
-      color: #00ffff;
-      font-size: 1.5rem;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
     }
 
-    nav a {
-      color: #ccc;
-      margin-left: 1rem;
-      text-decoration: none;
-      font-weight: bold;
+    header h2 {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #444;
     }
 
-    nav a:hover {
-      color: #fff;
-    }
-
-    .hero {
+    .main-video {
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 80vh;
-      background: #000;
+      padding: 2rem;
+      background-color: #000;
     }
 
-    .hero video {
-      max-width: 100%;
-      height: auto;
-      border: 3px solid #00ffff;
-      border-radius: 8px;
-      box-shadow: 0 0 20px #00ffff;
+    .main-video video {
+      width: 80%;
+      max-width: 1000px;
+      border: 4px solid #00ffff;
+      border-radius: 12px;
+      box-shadow: 0 0 25px #00ffff;
     }
 
-    .content {
-      padding: 4rem 2rem;
-      background: #1a1a1a;
+    .description {
+      padding: 2rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .progress {
+      padding: 2rem;
+      background-color: #eae0cb;
+    }
+
+    .progress h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .week {
+      margin-bottom: 2rem;
       text-align: center;
     }
 
-    .content h2 {
-      color: #00ffff;
+    .week h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .week video {
+      width: 90%;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #333;
+    }
+
+    .tools {
+      padding: 2rem;
+      background-color: #fff;
+    }
+
+    .tools h2 {
+      text-align: center;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
 
-    footer {
-      padding: 2rem;
-      background: #000;
-      text-align: center;
-      color: #888;
-      font-size: 0.9rem;
+    .tools h3 {
+      color: #111;
+      margin-top: 2rem;
+      font-size: 1.5rem;
+    }
+
+    .tools p {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding-top: 1rem;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>My Rotoscope</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <h1>Rotoscope Project</h1>
+    <h2>In Adobe After Effects 2023</h2>
   </header>
 
-  <section class="hero">
-    <!-- Replace this with your actual video or gif -->
-    <video src="rotoscope.mp4" autoplay loop muted></video>
+  <section class="main-video">
+    <video src="rotoscope.mp4" autoplay loop muted controls></video>
   </section>
 
-  <section id="about" class="content">
-    <h2>About This Rotoscope</h2>
-    <p>This rotoscope was created using frame-by-frame animation techniques to blend realism and art. It captures movement in a unique, expressive way.</p>
+  <section class="description">
+    <h2>About the Project</h2>
+    <p>This rotoscope animation project involves frame-by-frame editing to isolate and stylize motion. It was done entirely using Adobe After Effects 2023 tools, combining manual brush work, keyframes, effects, and layering techniques.</p>
   </section>
 
-  <section id="work" class="content">
-    <h2>More Work</h2>
-    <p>More animations and art pieces will be showcased here soon. Stay tuned!</p>
+  <section class="progress">
+    <h2>Weekly Progress</h2>
+
+    <!-- Loop for 10 weeks -->
+    <!-- Replace video src with actual clips -->
+    <div class="week">
+      <h3>Week 1</h3>
+      <video src="week1.mp4" controls></video>
+    </div>
+    <div class="week">
+      <h3>Week 2</h3>
+      <video src="week2.mp4" controls></video>
+    </div>
+    <div class="week">
+      <h3>Week 3</h3>
+      <video src="week3.mp4" controls></video>
+    </div>
+    <div class="week">
+      <h3>Week 4</h3>
+      <video src="week4.mp4" controls></video>
+    </div>
+    <div class="week">
+      <h3>Week 5</h3>
+      <video src="week5.mp4" controls></video>
+    </div>
+    <div class="week">
+      <h3>Week 6</h3>
+      <video src="week6.mp4" controls></video>
+    </div>
+    <div class="week">
+      <h3>Week 7</h3>
+      <video src="week7.mp4" controls></video>
+    </div>
+    <div class="week">
+      <h3>Week 8</h3>
+      <video src="week8.mp4" controls></video>
+    </div>
+    <div class="week">
+      <h3>Week 9</h3>
+      <video src="week9.mp4" controls></video>
+    </div>
+    <div class="week">
+      <h3>Week 10</h3>
+      <video src="week10.mp4" controls></video>
+    </div>
   </section>
 
-  <footer id="contact">
-    <p>Contact: youremail@example.com</p>
-    <p>© 2025 Your Name</p>
-  </footer>
+  <section class="tools">
+    <h2>Tools Used</h2>
+    <div class="tool-grid">
+      <div>
+        <h3>RotoBrush Tool</h3>
+        <p>The Roto Brush tool allows you to separate a subject from its background by painting strokes over the desired object. It enables a semi-automated way to create complex cutouts frame by frame.</p>
+      </div>
+      <div>
+        <h3>Pen Tool</h3>
+        <p>The Pen Tool offers full control for creating precise masks, paths, and custom shapes. It was used to refine mask edges and draw graphical elements.</p>
+      </div>
+      <div>
+        <h3>Effects & Presets Panel</h3>
+        <p>This panel provided quick access to hundreds of effects like Fill, Glow, and Tint. Applying presets allowed for fast experimentation and improved the animation's appeal.</p>
+      </div>
+      <div>
+        <h3>Transform Properties + Stopwatch</h3>
+        <p>Used for keyframing properties like Position, Scale, and Opacity to animate movements like zooming and fading.</p>
+      </div>
+      <div>
+        <h3>Freeze Feature</h3>
+        <p>Locks in the Roto Brush selections to ensure consistency throughout the animation by preventing recalculations.</p>
+      </div>
+      <div>
+        <h3>Timeline Panel</h3>
+        <p>The Timeline was essential for stacking layers, adjusting durations, and syncing transitions.</p>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
