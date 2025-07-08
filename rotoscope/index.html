@@ -1,145 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multimedia Authoring Hub</title>
-    <style>
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-        
-        body {
-            background-color: #f0f2f5;
-        }
-        
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, #4a2a7a 0%, #6d2b8b 100%);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo-icon {
-            margin-right: 10px;
-            font-size: 2rem;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 2rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        
-        nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multimedia</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* YouTube Video Section */
-        .video-section {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
-        }
+    body {
+      background-color: #0d0d0d;
+      font-family: 'Segoe UI', sans-serif;
+      color: #f0f0f0;
+    }
 
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            margin-top: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    /* HEADER */
+    header {
+      background-color: #000;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #ff9900;
+    }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                padding: 1rem;
-            }
-            
-            nav ul {
-                margin-top: 1rem;
-            }
-            
-            nav ul li {
-                margin-left: 1rem;
-                margin-right: 1rem;
-            }
-        }
-    </style>
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ff9900;
+    }
+
+    nav a {
+      color: #f0f0f0;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff9900;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .video-section {
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .video-section iframe {
+      width: 100%;
+      max-width: 900px;
+      height: 500px;
+      border-radius: 12px;
+      border: 2px solid #ff990044;
+      box-shadow: 0 0 15px rgba(255, 153, 0, 0.2);
+      margin-bottom: 1rem;
+    }
+
+    .video-section h2 {
+      font-size: 2rem;
+      color: #ff9900;
+      margin-bottom: 1rem;
+    }
+
+    .video-section p {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .video-section iframe {
+        height: 250px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="nav-container">
-            <div class="logo">
-                <span class="logo-icon">🎨</span>
-                <span>Multimedia </span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="/rotoscope/index.html" class="active">Home</a></li>
-                    <li><a href="/rotoscope/solar.html">Solar System</a></li>
-                    <li><a href="/rotoscope/roto.html">Rotoscope</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
+  <!-- HEADER -->
+  <header>
+    <div class="logo">🎨 Multimedia</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="solar-system.html">Solar System</a>
+      <a href="rotoscope.html">Rotoscope</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- Solar System Section -->
     <section class="video-section">
-        <!-- PASTE YOUR YOUTUBE EMBED CODE HERE -->
-        <!-- Example: Replace this with your iframe code -->
-        <div class="video-container">
-             <iframe width="560" height="315" src="https://www.youtube.com/embed/jWQx2f-CErU?si=TjuMEKetZLZ06ice" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <!-- END OF YOUTUBE EMBED CODE -->
+      <h2>Solar System Project</h2>
+      <iframe src="https://www.youtube.com/embed/RZ9vCPVdj1g" title="Solar System Video" allowfullscreen></iframe>
+      <p>
+        This project illustrates how time differs across planets in our solar system. It includes a planetary age calculator, animations of planetary orbits, and rich visual content that immerses the viewer in a cosmic perspective.
+      </p>
     </section>
+
+    <!-- Rotoscope Section -->
+    <section class="video-section">
+      <h2>Rotoscope Animation</h2>
+      <iframe src="https://www.youtube.com/embed/jNQXAC9IVRw" title="Rotoscope Animation" allowfullscreen></iframe>
+      <p>
+        This frame-by-frame rotoscoping animation was created in Adobe After Effects 2023 using RotoBrush, Pen Tool, and advanced masking techniques. It showcases precise motion capture and visual enhancements through effects and keyframes.
+      </p>
+    </section>
+
+  </main>
+
 </body>
 </html>
